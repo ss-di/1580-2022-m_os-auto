@@ -1,4 +1,4 @@
-!#/bin/sh
+#!/bin/sh
 
 echo '#!/bin/sh' > /etc/rc.d/rc.local
 chmod +x /etc/rc.d/rc.local
