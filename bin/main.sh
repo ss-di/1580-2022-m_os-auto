@@ -1,9 +1,11 @@
 #!/bin/sh
 
-#rm -rf /home/student
-#tar xjvpf data/home-student.tbz -C /home/
+cp data/wallpapers/1580-warning.jpg /usr/local/share/1580.jpg
 
-touch /tmp/111-test-222
-touch /tmp/123-test-321
+rm -rf /home/student
+tar xjvpf data/homes/home-student-empty.tbz -C /home/
+
+echo "[Wallpapers]" > /home/student/.config/plasmarc
+echo "usersWallpapers=/usr/local/share/1580.jpg" >> home/student/.config/plasmarc
 
 at now +1 minutes -f /root/1580-2022-m_os-auto/bin/update.sh
