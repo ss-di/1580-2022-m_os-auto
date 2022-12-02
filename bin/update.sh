@@ -5,3 +5,6 @@ git pull
 
 apt-get -y install pascalabcnet
 apt-get -y install scratch-desktop
+epm ei
+epm play pycharm
+
