@@ -6,6 +6,6 @@ git pull
 apt-get update && apt-get -y dist-upgrade && update-kernel -f && apt-get clean
 apt-get -y install pascalabcnet
 apt-get -y install scratch-desktop
-epm ei
-epm play pycharm
+epm ei &> /tmp/log/epm1.log
+epm play pycharm &> /tmp/log/epm2.log
 

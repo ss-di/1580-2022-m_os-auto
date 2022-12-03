@@ -13,6 +13,13 @@ else
 
 fi
 
+gpasswd -d student wheel &> /var/log/main-sh.log
+chmod 0750 /usr/bin/veyon-master &> /var/log/main-sh.log
+chmod 0750 /usr/bin/veyon-configurator &> /var/log/main-sh.log
+chmod root:wheel /usr/bin/veyon-master &> /var/log/main-sh.log
+chmod root:wheel /usr/bin/veyon-configurator &> /var/log/main-sh.log
+
+
 #exit
 
 rm -rf /home/student
