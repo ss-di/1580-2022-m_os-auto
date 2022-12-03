@@ -1,5 +1,7 @@
 #!/bin/sh
 
+exec > /var/log/main-sh.log 2>&1
+
 if [ "`hostname | grep 418`" ]
 then
     cp data/wallpapers/1580-warning.jpg /usr/share/design/school/backgrounds/default.png
@@ -13,14 +15,11 @@ else
 
 fi
 
-gpasswd -d student wheel &> /var/log/main-sh.log
-chmod 0750 /usr/bin/veyon-master &> /var/log/main-sh.log
-chmod 0750 /usr/bin/veyon-configurator &> /var/log/main-sh.log
-chmod root:wheel /usr/bin/veyon-master &> /var/log/main-sh.log
-chmod root:wheel /usr/bin/veyon-configurator &> /var/log/main-sh.log
-
-
-#exit
+gpasswd -d student wheel
+chmod 0750 /usr/bin/veyon-master
+chmod 0750 /usr/bin/veyon-configurator
+chown root:wheel /usr/bin/veyon-master
+chown root:wheel /usr/bin/veyon-configurator
 
 rm -rf /home/student
 tar xjvpf data/homes/home-student-empty.tbz -C /home/

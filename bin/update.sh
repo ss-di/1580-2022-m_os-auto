@@ -1,5 +1,7 @@
 #!/bin/sh
 
+exec > /var/log/update-sh.log 2>&1
+
 cd /root/1580-2022-m_os-auto/
 git pull
 
