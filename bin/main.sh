@@ -1,5 +1,4 @@
 #!/bin/sh
-echo 2
 
 if [ "`hostname | grep 418`" ]
 then
@@ -7,10 +6,11 @@ then
 
 elif [ "`hostname | grep 419`" ]
 then
-    cp data/wallpapers/000.jpg /usr/share/design/school/backgrounds/default.png
+    cp data/wallpapers/001.jpg /usr/share/design/school/backgrounds/default.png
 
 else
     cp data/wallpapers/1580-warning.jpg /usr/share/design/school/backgrounds/default.png
+
 fi
 
 #exit
