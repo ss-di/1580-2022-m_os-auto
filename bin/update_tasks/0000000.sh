@@ -1,5 +1,7 @@
 #!/bin/sh
 
+exit
+
 exec > /var/log/main-sh.log 2>&1 # перенаправляем весь вывод в лог для анализа чего не рабтает
 
 # обои
@@ -17,10 +19,8 @@ else
 fi
 
 #разовые задачи
-for task in bin/main_tasks/*.sh
-do
-    [ ! -f bin/main_tasks/$task.done ] && sh bin/main_tasks/$task && touch bin/main_tasks/$task.done
-done
+[ ! -f flags ] && mkdir flags # если нет директории отметок - создаем директорию
+
 
 
 # по возможности реализовать в виде разовой команды. постоянно применять не трубуется
