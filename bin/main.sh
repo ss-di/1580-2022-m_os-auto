@@ -36,3 +36,5 @@ tar xjvpf data/homes/home-student-empty.tbz -C /home/
 
 # планируем запуст через одну минуту (когда уже будет сеть)
 at now +1 minutes -f /root/1580-2022-m_os-auto/bin/update.sh
+
+# https://github.com/processing/processing4/releases/download/processing-1289-4.1.1/processing-4.1.1-linux-arm64.tgz
