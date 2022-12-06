@@ -22,14 +22,6 @@ do
     [ ! -f $task.done ] && sh $task && touch $task.done
 done
 
-
-# по возможности реализовать в виде разовой команды. постоянно применять не трубуется
-gpasswd -d student wheel # на всякий случай убрать права админа у студента. потом надо убрать команду
-chmod 0750 /usr/bin/veyon-master # отобрать права на запуск у всех кроме владельца и группы
-chmod 0750 /usr/bin/veyon-configurator # отобрать права на запуск у всех кроме владельца и группы
-chown root:wheel /usr/bin/veyon-master # установить нужную группы для допуска teacher
-chown root:wheel /usr/bin/veyon-configurator # установить нужную группы для допуска teacher
-
 # восстанавливаем студента по умолчанию
 rm -rf /home/student
 tar xjvpf data/homes/home-student-empty.tbz -C /home/

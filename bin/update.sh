@@ -7,9 +7,12 @@ git pull
 
 apt-get update && apt-get -y dist-upgrade && update-kernel -f && apt-get clean # обновление системы от разработчиков
 
-# установка пакетов. надо перевести в разряд разовых комманд.
-apt-get -y install pascalabcnet
-apt-get -y install scratch-desktop
+#разовые задачи
+for task in bin/update_tasks/*.sh
+do
+    [ ! -f $task.done ] && sh $task && touch $task.done
+done
+
 
 # вот это не работает. надо понять почему
 epm ei
