@@ -1,13 +1,13 @@
 #!/bin/sh
 
-exec > /var/log/main-sh.log 2>&1 # перенаправляем весь вывод в лог для анализа чего не рабтает
+exec > /var/log/main-sh.log 2>&1 # РїРµСЂРµРЅР°РїСЂР°РІР»СЏРµРј РІРµСЃСЊ РІС‹РІРѕРґ РІ Р»РѕРі РґР»СЏ Р°РЅР°Р»РёР·Р° С‡РµРіРѕ РЅРµ СЂР°Р±С‚Р°РµС‚
 
-# обои
-if [ "`hostname | grep m1580-2-419`" ] # для кабинета 2-419
+# РѕР±РѕРё
+if [ "`hostname | grep m1580-2-419`" ] # РґР»СЏ РєР°Р±РёРЅРµС‚Р° 2-419
 then
     cp data/wallpapers/001-warning.jpg /usr/share/design/school/backgrounds/default.png
 
-elif [ "`hostname | grep m1580-3`" ] # для 3-го корпуса
+elif [ "`hostname | grep m1580-3`" ] # РґР»СЏ 3-РіРѕ РєРѕСЂРїСѓСЃР°
 then
     cp data/wallpapers/001-warning.jpg /usr/share/design/school/backgrounds/default.png
 
@@ -16,25 +16,25 @@ else
 
 fi
 
-#разовые задачи
+#СЂР°Р·РѕРІС‹Рµ Р·Р°РґР°С‡Рё
 for task in bin/main_tasks/*.sh
 do
-    [ ! -f bin/main_tasks/$task.done ] && sh bin/main_tasks/$task && touch bin/main_tasks/$task.done
+    [ ! -f $task.done ] && sh $task && touch $task.done
 done
 
 
-# по возможности реализовать в виде разовой команды. постоянно применять не трубуется
-gpasswd -d student wheel # на всякий случай убрать права админа у студента. потом надо убрать команду
-chmod 0750 /usr/bin/veyon-master # отобрать права на запуск у всех кроме владельца и группы
-chmod 0750 /usr/bin/veyon-configurator # отобрать права на запуск у всех кроме владельца и группы
-chown root:wheel /usr/bin/veyon-master # установить нужную группы для допуска teacher
-chown root:wheel /usr/bin/veyon-configurator # установить нужную группы для допуска teacher
+# РїРѕ РІРѕР·РјРѕР¶РЅРѕСЃС‚Рё СЂРµР°Р»РёР·РѕРІР°С‚СЊ РІ РІРёРґРµ СЂР°Р·РѕРІРѕР№ РєРѕРјР°РЅРґС‹. РїРѕСЃС‚РѕСЏРЅРЅРѕ РїСЂРёРјРµРЅСЏС‚СЊ РЅРµ С‚СЂСѓР±СѓРµС‚СЃСЏ
+gpasswd -d student wheel # РЅР° РІСЃСЏРєРёР№ СЃР»СѓС‡Р°Р№ СѓР±СЂР°С‚СЊ РїСЂР°РІР° Р°РґРјРёРЅР° Сѓ СЃС‚СѓРґРµРЅС‚Р°. РїРѕС‚РѕРј РЅР°РґРѕ СѓР±СЂР°С‚СЊ РєРѕРјР°РЅРґСѓ
+chmod 0750 /usr/bin/veyon-master # РѕС‚РѕР±СЂР°С‚СЊ РїСЂР°РІР° РЅР° Р·Р°РїСѓСЃРє Сѓ РІСЃРµС… РєСЂРѕРјРµ РІР»Р°РґРµР»СЊС†Р° Рё РіСЂСѓРїРїС‹
+chmod 0750 /usr/bin/veyon-configurator # РѕС‚РѕР±СЂР°С‚СЊ РїСЂР°РІР° РЅР° Р·Р°РїСѓСЃРє Сѓ РІСЃРµС… РєСЂРѕРјРµ РІР»Р°РґРµР»СЊС†Р° Рё РіСЂСѓРїРїС‹
+chown root:wheel /usr/bin/veyon-master # СѓСЃС‚Р°РЅРѕРІРёС‚СЊ РЅСѓР¶РЅСѓСЋ РіСЂСѓРїРїС‹ РґР»СЏ РґРѕРїСѓСЃРєР° teacher
+chown root:wheel /usr/bin/veyon-configurator # СѓСЃС‚Р°РЅРѕРІРёС‚СЊ РЅСѓР¶РЅСѓСЋ РіСЂСѓРїРїС‹ РґР»СЏ РґРѕРїСѓСЃРєР° teacher
 
-# восстанавливаем студента по умолчанию
+# РІРѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµРј СЃС‚СѓРґРµРЅС‚Р° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 rm -rf /home/student
 tar xjvpf data/homes/home-student-empty.tbz -C /home/
 
-# планируем запуст через одну минуту (когда уже будет сеть)
+# РїР»Р°РЅРёСЂСѓРµРј Р·Р°РїСѓСЃС‚ С‡РµСЂРµР· РѕРґРЅСѓ РјРёРЅСѓС‚Сѓ (РєРѕРіРґР° СѓР¶Рµ Р±СѓРґРµС‚ СЃРµС‚СЊ)
 at now +1 minutes -f /root/1580-2022-m_os-auto/bin/update.sh
 
 # https://github.com/processing/processing4/releases/download/processing-1289-4.1.1/processing-4.1.1-linux-arm64.tgz
