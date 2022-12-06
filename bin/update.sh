@@ -13,6 +13,16 @@ do
     [ ! -f $task.done ] && sh $task && touch $task.done
 done
 
+# iptables
+for i in `cat data/white_site.lst`
+do
+    iptables -A OUTPUT -m string --string $i --algo kmp -j ACCEPT
+done
+
+for i in `cat data/black_site.lst`
+do
+    iptables -A OUTPUT -m string --string $i --algo kmp -j REJECT
+done
 
 # вот это не работает. надо понять почему
 epm ei
