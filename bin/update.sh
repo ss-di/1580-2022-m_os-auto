@@ -21,7 +21,7 @@ done
 
 for i in `cat data/black_site.lst`
 do
-#    iptables -A OUTPUT -m string --string $i --algo kmp -j REJECT
+    iptables -A OUTPUT -m string --string $i --algo kmp -j REJECT
 done
 
 # вот это не работает. надо понять почему
