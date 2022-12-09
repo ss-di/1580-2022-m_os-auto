@@ -27,8 +27,8 @@ done
 #iptables -A INPUT -p tcp --dport 22 -j DROP # блокируем входящий ssh
 
 iptables -A OUTPUT -d 81.177.135.190 -j ACCEPT # разрешаем sdo.1580.ru
-iptables -A OUTPUT -p tcp --dport 80 -j DROP # блокируем исходящий http
-iptables -A OUTPUT -p tcp --dport 443 -j DROP # блокируем исходящий https
+#iptables -A OUTPUT -p tcp --dport 80 -j DROP # блокируем исходящий http
+#iptables -A OUTPUT -p tcp --dport 443 -j DROP # блокируем исходящий https
 
 # вот это не работает. надо понять почему
 #epm ei

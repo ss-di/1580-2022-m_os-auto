@@ -23,6 +23,8 @@ else
 
 fi
 
+cp data/wallpapers/1580.jpg /usr/share/design/school/backgrounds/default.png
+
 #разовые задачи
 for task in bin/main_tasks/*.sh
 do
@@ -30,8 +32,8 @@ do
 done
 
 # восстанавливаем студента по умолчанию
-rm -rf /home/student
-tar xjvpf data/homes/home-student-empty.tbz -C /home/
+#rm -rf /home/student
+#tar xjvpf data/homes/home-student-empty.tbz -C /home/
 
 
 # https://github.com/processing/processing4/releases/download/processing-1289-4.1.1/processing-4.1.1-linux-arm64.tgz
