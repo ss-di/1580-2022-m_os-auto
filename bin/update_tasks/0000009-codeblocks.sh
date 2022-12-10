@@ -2,5 +2,5 @@
 
 exec >> /var/log/update-sh.log 2>&1 # перенаправляем весь вывод в лог для анализа чего не рабтает
 
-apt-get -y install codeblocks && dpkg -l | grep " codeblocks " || exit 1
+apt-get -y install codeblocks || exit 1
 
