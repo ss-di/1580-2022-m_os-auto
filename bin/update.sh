@@ -33,3 +33,5 @@ iptables -A OUTPUT -d 81.177.135.190 -j ACCEPT # разрешаем sdo.1580.ru
 # вот это не работает. надо понять почему
 #epm ei
 #epm play pycharm
+gpasswd -a student vboxusers
+gpasswd -a teacher vboxusers
