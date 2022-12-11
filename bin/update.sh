@@ -16,10 +16,12 @@ done
 if [ "`hostname | grep localhost`" ] # для не настроенных
 then
     # ничего не делаем
+    echo do nothing
 
 elif [ "`hostname | grep p1580`" ] # для панелей
 then
     # ничего не делаем
+    echo do nothing
 
 elif [ "`hostname | grep m1580`" ] # для моноблоков
 then
@@ -49,4 +51,5 @@ then
 
 else # для неведомых зверушек
     # ничего не делаем
+    echo do nothing
 fi

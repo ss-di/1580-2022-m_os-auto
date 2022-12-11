@@ -14,6 +14,7 @@ done
 if [ "`hostname | grep localhost`" ] # для не настроенных
 then
     # ничего не делаем
+    echo do nothing
 
 elif [ "`hostname | grep p1580`" ] # для панелей
 then
@@ -61,6 +62,8 @@ then
 
 else # для неведомых зверушек
     # ничего не делаем
+    echo do nothing
+
 fi
 
 # https://github.com/processing/processing4/releases/download/processing-1289-4.1.1/processing-4.1.1-linux-arm64.tgz
