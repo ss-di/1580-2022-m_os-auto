@@ -25,8 +25,8 @@ elif [ "`hostname | grep m1580-2-419`" ] # для моноблоков 2-419
 then
 
     # ставим картинку
-    # cp data/wallpapers/001-warning.jpg /usr/share/design/school/backgrounds/default.png
-    cp data/wallpapers/001.jpg /usr/share/design/school/backgrounds/default.png
+    cp data/wallpapers/001-warning.jpg /usr/share/design/school/backgrounds/default.png
+    # cp data/wallpapers/001.jpg /usr/share/design/school/backgrounds/default.png
 
     # восстанавливаем студента по умолчанию
     rm -rf /home/student
@@ -36,8 +36,8 @@ then
 elif [ "`hostname | grep m1580-3`" ] # для моноблоков 3-го корпуса
 then
     # ставим картинку
-    # cp data/wallpapers/001-warning.jpg /usr/share/design/school/backgrounds/default.png
-    cp data/wallpapers/001.jpg /usr/share/design/school/backgrounds/default.png
+    cp data/wallpapers/001-warning.jpg /usr/share/design/school/backgrounds/default.png
+    # cp data/wallpapers/001.jpg /usr/share/design/school/backgrounds/default.png
 
     # восстанавливаем студента по умолчанию
     rm -rf /home/student
@@ -53,8 +53,8 @@ then
     chmod root:wheel /usr/bin/veyon-configurator
 
     # ставим картинку
-    # cp data/wallpapers/1580-warning.jpg /usr/share/design/school/backgrounds/default.png
-    cp data/wallpapers/1580.jpg /usr/share/design/school/backgrounds/default.png
+    cp data/wallpapers/1580-warning.jpg /usr/share/design/school/backgrounds/default.png
+    # cp data/wallpapers/1580.jpg /usr/share/design/school/backgrounds/default.png
 
     # восстанавливаем студента по умолчанию
     rm -rf /home/student
