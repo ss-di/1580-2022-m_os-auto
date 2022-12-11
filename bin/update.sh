@@ -13,25 +13,40 @@ do
     [ ! -f $task.done ] && sh $task && touch $task.done
 done
 
-# iptables
-for i in `cat data/white_site.lst`
-do
-    iptables -A OUTPUT -m string --string $i --algo kmp -j ACCEPT
-done
+if [ "`hostname | grep localhost`" ] # для не настроенных
+then
+    # ничего не делаем
 
-for i in `cat data/black_site.lst`
-do
-    iptables -A OUTPUT -m string --string $i --algo kmp -j REJECT
-done
+elif [ "`hostname | grep p1580`" ] # для панелей
+then
+    # ничего не делаем
 
-#iptables -A INPUT -p tcp --dport 22 -j DROP # блокируем входящий ssh
+elif [ "`hostname | grep m1580`" ] # для моноблоков
+then
 
-iptables -A OUTPUT -d 81.177.135.190 -j ACCEPT # разрешаем sdo.1580.ru
-#iptables -A OUTPUT -p tcp --dport 80 -j DROP # блокируем исходящий http
-#iptables -A OUTPUT -p tcp --dport 443 -j DROP # блокируем исходящий https
+    # iptables
+    for i in `cat data/white_site.lst`
+    do
+        iptables -A OUTPUT -m string --string $i --algo kmp -j ACCEPT
+    done
 
-# вот это не работает. надо понять почему
-#epm ei
-#epm play pycharm
-gpasswd -a student vboxusers
-gpasswd -a teacher vboxusers
+    for i in `cat data/black_site.lst`
+    do
+        iptables -A OUTPUT -m string --string $i --algo kmp -j REJECT
+    done
+
+    #iptables -A INPUT -p tcp --dport 22 -j DROP # блокируем входящий ssh
+
+    iptables -A OUTPUT -d 81.177.135.190 -j ACCEPT # разрешаем sdo.1580.ru
+    #iptables -A OUTPUT -p tcp --dport 80 -j DROP # блокируем исходящий http
+    #iptables -A OUTPUT -p tcp --dport 443 -j DROP # блокируем исходящий https
+
+    # вот это не работает. надо понять почему
+    #epm ei
+    #epm play pycharm
+    gpasswd -a student vboxusers
+    gpasswd -a teacher vboxusers
+
+else # для неведомых зверушек
+    # ничего не делаем
+fi
