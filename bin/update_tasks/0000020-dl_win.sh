@@ -4,7 +4,8 @@ exec >> /var/log/update-sh.log 2>&1 # перенаправляем весь вы
 
 if [ "`hostname | grep localhost`" ] # для не настроенных
 then
-    exit -1
+    # ничего не делаем
+    echo do nothing
 
 elif [ "`hostname | grep p1580`" ] # для панелей
 then
@@ -13,9 +14,11 @@ then
 elif [ "`hostname | grep m1580`" ] # для моноблоков
 then
 
-    cd /home/ && wget -c https://sdo.1580.ru/some-files/Windows_10.ova || exit 1
+    cd /home/ && wget -nc https://sdo.1580.ru/some-files/Windows_10.ova || exit 1
 
 else # для неведомых зверушек
-    exit 1
+    # ничего не делаем
+    echo do nothing
+
 fi
 

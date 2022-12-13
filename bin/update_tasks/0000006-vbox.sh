@@ -5,7 +5,8 @@ exec >> /var/log/update-sh.log 2>&1 # перенаправляем весь вы
 
 if [ "`hostname | grep localhost`" ] # для не настроенных
 then
-    exit 1
+    # ничего не делаем
+    echo do nothing
 
 elif [ "`hostname | grep p1580`" ] # для панелей
 then
@@ -16,7 +17,8 @@ then
     apt-get -y install virtualbox && gpasswd -a student vboxusers && gpasswd -a teacher vboxusers || exit 1
 
 else # для неведомых зверушек
-    exit 1
+    # ничего не делаем
+    echo do nothing
 
 fi
 
