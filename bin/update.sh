@@ -3,7 +3,7 @@
 exec > /var/log/update-sh.log 2>&1 # перенаправляем весь вывод в лог для анализа чего не рабтает
 
 cd /root/1580-2022-m_os-auto/
-git pull
+git pull || (at now +2 minutes -f /root/1580-2022-m_os-auto/bin/update.sh; exit)
 
 apt-get update && apt-get -y dist-upgrade && update-kernel -f && apt-get clean # обновление системы от разработчиков
 
@@ -14,6 +14,11 @@ do
 done
 
 if [ "`hostname | grep localhost`" ] # для не настроенных
+then
+    # ничего не делаем
+    echo do nothing
+
+elif [ "`hostname | grep n1580`" ] # для ноутов
 then
     # ничего не делаем
     echo do nothing
@@ -67,8 +72,8 @@ then
     #iptables -A INPUT -p tcp --dport 22 -j DROP # блокируем входящий ssh
 
     iptables -A OUTPUT -d 81.177.135.190 -j ACCEPT # разрешаем sdo.1580.ru
-    iptables -A OUTPUT -p tcp --dport 80 -j DROP # блокируем исходящий http
-    iptables -A OUTPUT -p tcp --dport 443 -j DROP # блокируем исходящий https
+    #iptables -A OUTPUT -p tcp --dport 80 -j DROP # блокируем исходящий http
+    #iptables -A OUTPUT -p tcp --dport 443 -j DROP # блокируем исходящий https
 
     # вот это не работает. надо понять почему
     #epm ei

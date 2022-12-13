@@ -16,6 +16,11 @@ then
     # ничего не делаем
     echo do nothing
 
+elif [ "`hostname | grep n1580`" ] # для ноутов
+then
+    # ничего не делаем
+    echo do nothing
+
 elif [ "`hostname | grep p1580-2-418`" ] # для панели в 418
 then
     # ставим картинку
@@ -27,24 +32,6 @@ then
     cp data/wallpapers/001.jpg /usr/share/design/school/backgrounds/default.png
 
 elif [ "`hostname | grep m1580-2-419`" ] # для моноблоков 2-419
-then
-
-    # проставить права на veyon
-    gpasswd -d student wheel
-    chmod 0750 /usr/bin/veyon-master
-    chmod 0750 /usr/bin/veyon-configurator
-    chmod root:wheel /usr/bin/veyon-master
-    chmod root:wheel /usr/bin/veyon-configurator
-
-    # ставим картинку
-    # cp data/wallpapers/001-warning.jpg /usr/share/design/school/backgrounds/default.png
-    cp data/wallpapers/001.jpg /usr/share/design/school/backgrounds/default.png
-
-    # восстанавливаем студента по умолчанию
-    #rm -rf /home/student
-    #tar xjvpf data/homes/home-student-empty.tbz -C /home/
-
-elif [ "`hostname | grep m1580-3-320`" ] || [ "`hostname | grep m1580-3-418`" ] # для моноблоков 3-320 и 3-418
 then
 
     # проставить права на veyon
@@ -73,12 +60,12 @@ then
     chmod root:wheel /usr/bin/veyon-configurator
 
     # ставим картинку
-    # cp data/wallpapers/001-warning.jpg /usr/share/design/school/backgrounds/default.png
-    cp data/wallpapers/001.jpg /usr/share/design/school/backgrounds/default.png
+    cp data/wallpapers/001-warning.jpg /usr/share/design/school/backgrounds/default.png
+    # cp data/wallpapers/001.jpg /usr/share/design/school/backgrounds/default.png
 
     # восстанавливаем студента по умолчанию
-    #rm -rf /home/student
-    #tar xjvpf data/homes/home-student-empty.tbz -C /home/
+    rm -rf /home/student
+    tar xjvpf data/homes/home-student-empty.tbz -C /home/
 
 elif [ "`hostname | grep m1580`" ] # для прочих моноблоков
 then
@@ -91,12 +78,12 @@ then
     chmod root:wheel /usr/bin/veyon-configurator
 
     # ставим картинку
-    # cp data/wallpapers/1580-warning.jpg /usr/share/design/school/backgrounds/default.png
-    cp data/wallpapers/1580.jpg /usr/share/design/school/backgrounds/default.png
+    cp data/wallpapers/1580-warning.jpg /usr/share/design/school/backgrounds/default.png
+    # cp data/wallpapers/1580.jpg /usr/share/design/school/backgrounds/default.png
 
     # восстанавливаем студента по умолчанию
-    #rm -rf /home/student
-    #tar xjvpf data/homes/home-student-empty.tbz -C /home/
+    rm -rf /home/student
+    tar xjvpf data/homes/home-student-empty.tbz -C /home/
 
 else # для неведомых зверушек
     # ничего не делаем
