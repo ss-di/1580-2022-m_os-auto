@@ -23,7 +23,7 @@ then
     # ничего не делаем
     echo do nothing
 
-elif [ "`hostname | grep m1580`" ] # для моноблоков
+elif [ "`hostname | grep m1580-3-320`" ] || [ "`hostname | grep m1580-3-418`" ] # для моноблоков 3-320 и 3-418
 then
 
     # iptables
@@ -42,6 +42,33 @@ then
     iptables -A OUTPUT -d 81.177.135.190 -j ACCEPT # разрешаем sdo.1580.ru
     #iptables -A OUTPUT -p tcp --dport 80 -j DROP # блокируем исходящий http
     #iptables -A OUTPUT -p tcp --dport 443 -j DROP # блокируем исходящий https
+
+    # вот это не работает. надо понять почему
+    #epm ei
+    #epm play pycharm
+    gpasswd -a student vboxusers
+    gpasswd -a teacher vboxusers
+
+
+elif [ "`hostname | grep m1580`" ] # для моноблоков
+then
+
+    # iptables
+    for i in `cat data/white_site.lst`
+    do
+        iptables -A OUTPUT -m string --string $i --algo kmp -j ACCEPT
+    done
+
+    for i in `cat data/black_site.lst`
+    do
+        iptables -A OUTPUT -m string --string $i --algo kmp -j REJECT
+    done
+
+    #iptables -A INPUT -p tcp --dport 22 -j DROP # блокируем входящий ssh
+
+    iptables -A OUTPUT -d 81.177.135.190 -j ACCEPT # разрешаем sdo.1580.ru
+    iptables -A OUTPUT -p tcp --dport 80 -j DROP # блокируем исходящий http
+    iptables -A OUTPUT -p tcp --dport 443 -j DROP # блокируем исходящий https
 
     # вот это не работает. надо понять почему
     #epm ei
