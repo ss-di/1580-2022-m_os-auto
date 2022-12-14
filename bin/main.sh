@@ -38,8 +38,8 @@ then
     gpasswd -d student wheel
     chmod 0750 /usr/bin/veyon-master
     chmod 0750 /usr/bin/veyon-configurator
-    chmod root:wheel /usr/bin/veyon-master
-    chmod root:wheel /usr/bin/veyon-configurator
+    chown root:wheel /usr/bin/veyon-master
+    chown root:wheel /usr/bin/veyon-configurator
 
     # ставим картинку
     cp data/wallpapers/001-warning.jpg /usr/share/design/school/backgrounds/default.png
@@ -56,8 +56,8 @@ then
     gpasswd -d student wheel
     chmod 0750 /usr/bin/veyon-master
     chmod 0750 /usr/bin/veyon-configurator
-    chmod root:wheel /usr/bin/veyon-master
-    chmod root:wheel /usr/bin/veyon-configurator
+    chown root:wheel /usr/bin/veyon-master
+    chown root:wheel /usr/bin/veyon-configurator
 
     # ставим картинку
     cp data/wallpapers/001-warning.jpg /usr/share/design/school/backgrounds/default.png
@@ -74,8 +74,8 @@ then
     gpasswd -d student wheel
     chmod 0750 /usr/bin/veyon-master
     chmod 0750 /usr/bin/veyon-configurator
-    chmod root:wheel /usr/bin/veyon-master
-    chmod root:wheel /usr/bin/veyon-configurator
+    chown root:wheel /usr/bin/veyon-master
+    chown root:wheel /usr/bin/veyon-configurator
 
     # ставим картинку
     cp data/wallpapers/1580-warning.jpg /usr/share/design/school/backgrounds/default.png
