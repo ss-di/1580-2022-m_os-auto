@@ -3,7 +3,7 @@
 exec > /var/log/update-sh.log 2>&1 # перенаправляем весь вывод в лог для анализа чего не рабтает
 
 cd /root/1580-2022-m_os-auto/
-git pull || (at now +2 minutes -f /root/1580-2022-m_os-auto/bin/update.sh; exit)
+git pull || (at now +10 minutes -f /root/1580-2022-m_os-auto/bin/update.sh; exit)
 
 apt-get update && apt-get -y dist-upgrade && update-kernel -f && apt-get clean # обновление системы от разработчиков
 
