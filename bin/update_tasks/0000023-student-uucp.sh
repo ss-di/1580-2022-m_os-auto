@@ -4,5 +4,3 @@ exec >> /var/log/update-sh.log 2>&1 # перенаправляем весь вы
 
 gpasswd -a student uucp # для ардуино
 
-fi
-
