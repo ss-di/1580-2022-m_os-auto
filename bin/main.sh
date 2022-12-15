@@ -47,7 +47,7 @@ then
     BACKUP=/home/backup-student-from-`date +%Y_%m_%d-%H_%M_%S`
     mv /home/student $BACKUP
     chown root:wheel $BACKUP
-    chmod 0700 $BACKUP
+    chmod 0750 $BACKUP
 
     # восстанавливаем студента по умолчанию
     # rm -rf /home/student
@@ -64,7 +64,7 @@ then
     BACKUP=/home/backup-student-from-`date +%Y_%m_%d-%H_%M_%S`
     mv /home/student $BACKUP
     chown root:wheel $BACKUP
-    chmod 0700 $BACKUP
+    chmod 0750 $BACKUP
 
     # восстанавливаем студента по умолчанию
     # rm -rf /home/student
@@ -81,7 +81,7 @@ then
     BACKUP=/home/backup-student-from-`date +%Y_%m_%d-%H_%M_%S`
     mv /home/student $BACKUP
     chown root:wheel $BACKUP
-    chmod 0700 $BACKUP
+    chmod 0750 $BACKUP
 
     # восстанавливаем студента по умолчанию
     # rm -rf /home/student
