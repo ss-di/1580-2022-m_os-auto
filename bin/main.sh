@@ -11,6 +11,15 @@ do
     [ ! -f $task.done ] && sh $task && touch $task.done
 done
 
+DATE=`date +%Y_%m_%d`
+
+#удаляем старые бэкапы
+for FILE in /home/backup-*
+do
+    [ ! "`echo $FILE | grep $DATE`" ] && rm -rf $FILE
+done
+
+
 if [ "`hostname | grep localhost`" ] # для не настроенных
 then
     # ничего не делаем
@@ -46,7 +55,7 @@ then
     # backup
     BACKUP=/home/backup-student-from-`date +%Y_%m_%d-%H_%M_%S`
     mv /home/student $BACKUP
-    chown root:wheel $BACKUP
+    chown root:teacher $BACKUP
     chmod 0750 $BACKUP
 
     # восстанавливаем студента по умолчанию
@@ -63,7 +72,7 @@ then
     # backup
     BACKUP=/home/backup-student-from-`date +%Y_%m_%d-%H_%M_%S`
     mv /home/student $BACKUP
-    chown root:wheel $BACKUP
+    chown root:teacher $BACKUP
     chmod 0750 $BACKUP
 
     # восстанавливаем студента по умолчанию
@@ -80,7 +89,7 @@ then
     # backup
     BACKUP=/home/backup-student-from-`date +%Y_%m_%d-%H_%M_%S`
     mv /home/student $BACKUP
-    chown root:wheel $BACKUP
+    chown root:teacher $BACKUP
     chmod 0750 $BACKUP
 
     # восстанавливаем студента по умолчанию
