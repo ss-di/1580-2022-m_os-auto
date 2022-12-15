@@ -18,6 +18,11 @@ then
     # ничего не делаем
     echo do nothing
 
+elif [ "`hostname | grep n1580-2-lob`" ] # для бесчеловечных экспериментов
+then
+    # ничего не делаем
+    echo do nothing
+
 elif [ "`hostname | grep n1580`" ] # для ноутов
 then
     # ничего не делаем
@@ -37,6 +42,8 @@ then
         iptables -A OUTPUT -m string --string $i --algo kmp -j ACCEPT
     done
 
+    iptables -A OUTPUT -d 81.177.135.190 -j ACCEPT # разрешаем sdo.1580.ru
+
     for i in `cat data/black_site.lst`
     do
         iptables -A OUTPUT -m string --string $i --algo kmp -j REJECT
@@ -44,25 +51,25 @@ then
 
     #iptables -A INPUT -p tcp --dport 22 -j DROP # блокируем входящий ssh
 
-    iptables -A OUTPUT -d 81.177.135.190 -j ACCEPT # разрешаем sdo.1580.ru
     #iptables -A OUTPUT -p tcp --dport 80 -j DROP # блокируем исходящий http
     #iptables -A OUTPUT -p tcp --dport 443 -j DROP # блокируем исходящий https
 
     # вот это не работает. надо понять почему
     #epm ei
     #epm play pycharm
-    gpasswd -a student vboxusers
-    gpasswd -a teacher vboxusers
-
 
 elif [ "`hostname | grep m1580`" ] # для моноблоков
 then
 
     # iptables
+    iptables -A OUTPUT -d 81.177.135.190 -j ACCEPT # разрешаем sdo.1580.ru
+
     for i in `cat data/white_site.lst`
     do
         iptables -A OUTPUT -m string --string $i --algo kmp -j ACCEPT
     done
+
+    iptables -A OUTPUT -d 81.177.135.190 -j ACCEPT # разрешаем sdo.1580.ru
 
     for i in `cat data/black_site.lst`
     do
@@ -71,15 +78,12 @@ then
 
     #iptables -A INPUT -p tcp --dport 22 -j DROP # блокируем входящий ssh
 
-    iptables -A OUTPUT -d 81.177.135.190 -j ACCEPT # разрешаем sdo.1580.ru
-    #iptables -A OUTPUT -p tcp --dport 80 -j DROP # блокируем исходящий http
-    #iptables -A OUTPUT -p tcp --dport 443 -j DROP # блокируем исходящий https
+    iptables -A OUTPUT -p tcp --dport 80 -j DROP # блокируем исходящий http
+    iptables -A OUTPUT -p tcp --dport 443 -j DROP # блокируем исходящий https
 
     # вот это не работает. надо понять почему
     #epm ei
     #epm play pycharm
-    gpasswd -a student vboxusers
-    gpasswd -a teacher vboxusers
 
 else # для неведомых зверушек
     # ничего не делаем

@@ -16,6 +16,11 @@ then
     # ничего не делаем
     echo do nothing
 
+elif [ "`hostname | grep n1580-2-lob`" ] # для бесчеловечных экспериментов
+then
+    # ничего не делаем
+    echo do nothing
+
 elif [ "`hostname | grep n1580`" ] # для ноутов
 then
     # ничего не делаем
@@ -34,55 +39,52 @@ then
 elif [ "`hostname | grep m1580-2-419`" ] # для моноблоков 2-419
 then
 
-    # проставить права на veyon
-    gpasswd -d student wheel
-    chmod 0750 /usr/bin/veyon-master
-    chmod 0750 /usr/bin/veyon-configurator
-    chown root:wheel /usr/bin/veyon-master
-    chown root:wheel /usr/bin/veyon-configurator
-
     # ставим картинку
     cp data/wallpapers/001-warning.jpg /usr/share/design/school/backgrounds/default.png
     # cp data/wallpapers/001.jpg /usr/share/design/school/backgrounds/default.png
 
+    # backup
+    BACKUP=/home/backup-student-from-`date +%Y_%m_%d-%H_%M_%S`
+    mv /home/student $BACKUP
+    chown root:wheel $BACKUP
+    chmod 0700 $BACKUP
+
     # восстанавливаем студента по умолчанию
-    rm -rf /home/student
+    # rm -rf /home/student
     tar xjvpf data/homes/home-student-empty.tbz -C /home/
 
 elif [ "`hostname | grep m1580-3`" ] # для моноблоков 3-го корпуса
 then
 
-    # проставить права на veyon
-    gpasswd -d student wheel
-    chmod 0750 /usr/bin/veyon-master
-    chmod 0750 /usr/bin/veyon-configurator
-    chown root:wheel /usr/bin/veyon-master
-    chown root:wheel /usr/bin/veyon-configurator
-
     # ставим картинку
     cp data/wallpapers/001-warning.jpg /usr/share/design/school/backgrounds/default.png
     # cp data/wallpapers/001.jpg /usr/share/design/school/backgrounds/default.png
 
+    # backup
+    BACKUP=/home/backup-student-from-`date +%Y_%m_%d-%H_%M_%S`
+    mv /home/student $BACKUP
+    chown root:wheel $BACKUP
+    chmod 0700 $BACKUP
+
     # восстанавливаем студента по умолчанию
-    rm -rf /home/student
+    # rm -rf /home/student
     tar xjvpf data/homes/home-student-empty.tbz -C /home/
 
 elif [ "`hostname | grep m1580`" ] # для прочих моноблоков
 then
 
-    # проставить права на veyon
-    gpasswd -d student wheel
-    chmod 0750 /usr/bin/veyon-master
-    chmod 0750 /usr/bin/veyon-configurator
-    chown root:wheel /usr/bin/veyon-master
-    chown root:wheel /usr/bin/veyon-configurator
-
     # ставим картинку
     cp data/wallpapers/1580-warning.jpg /usr/share/design/school/backgrounds/default.png
     # cp data/wallpapers/1580.jpg /usr/share/design/school/backgrounds/default.png
 
+    # backup
+    BACKUP=/home/backup-student-from-`date +%Y_%m_%d-%H_%M_%S`
+    mv /home/student $BACKUP
+    chown root:wheel $BACKUP
+    chmod 0700 $BACKUP
+
     # восстанавливаем студента по умолчанию
-    rm -rf /home/student
+    # rm -rf /home/student
     tar xjvpf data/homes/home-student-empty.tbz -C /home/
 
 else # для неведомых зверушек
