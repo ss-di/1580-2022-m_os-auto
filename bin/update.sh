@@ -18,10 +18,30 @@ then
     # ничего не делаем
     echo do nothing
 
-elif [ "`hostname | grep n1580-2-lob`" ] # для бесчеловечных экспериментов
+elif [ "`hostname | grep x1580`" ] # для бесчеловечных экспериментов
 then
     # ничего не делаем
-    echo do nothing
+#    echo do nothing
+    # iptables
+    for i in `cat data/white_site.lst`
+    do
+        iptables -A OUTPUT -m string --string $i --algo kmp -j ACCEPT
+    done
+
+    iptables -A OUTPUT -d 81.177.135.190 -j ACCEPT # разрешаем sdo.1580.ru
+
+    for i in `cat data/black_site.lst`
+    do
+        iptables -A OUTPUT -m string --string $i --algo kmp -j REJECT
+    done
+
+    #iptables -A INPUT -p tcp --dport 22 -j DROP # блокируем входящий ssh
+
+    iptables -A OUTPUT -p tcp --dport 80 -j LOG # блокируем исходящий http
+    iptables -A OUTPUT -p tcp --dport 443 -j LOG # блокируем исходящий https
+    iptables -A OUTPUT -p tcp --dport 80 -j DROP # блокируем исходящий http
+    iptables -A OUTPUT -p tcp --dport 443 -j DROP # блокируем исходящий https
+
 
 elif [ "`hostname | grep n1580`" ] # для ноутов
 then
