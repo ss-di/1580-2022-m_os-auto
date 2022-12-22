@@ -49,7 +49,8 @@ then
 #    iptables -A OUTPUT -p tcp --dport 80 -j DROP # блокируем исходящий http
 #    iptables -A OUTPUT -p tcp --dport 443 -j DROP # блокируем исходящий https
 
-    epm ei && epm play pycharm
+    # epm ei && 
+    epm play pycharm
 
 elif [ "`hostname | grep n1580`" ] # для ноутов
 then
