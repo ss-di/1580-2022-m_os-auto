@@ -24,7 +24,7 @@ then
         iptables -A OUTPUT -m string --string $i --algo kmp -j ACCEPT
     done
 
-    iptables -A OUTPUT -d 81.177.135.190 -j ACCEPT # разрешаем sdo.1580.ru
+    # iptables -A OUTPUT -d 81.177.135.190 -j ACCEPT # разрешаем sdo.1580.ru
 
     for i in `cat data/black_site.lst`
     do

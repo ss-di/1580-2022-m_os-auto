@@ -25,10 +25,23 @@ then
     # ничего не делаем
     echo do nothing
 
-elif [ "`hostname | grep n1580-2-lob`" ] # для бесчеловечных экспериментов
+elif [ "`hostname | grep x1580`" ] # для бесчеловечных экспериментов
 then
     # ничего не делаем
-    echo do nothing
+    # echo do nothing
+    # ставим картинку
+    cp data/wallpapers/1580-warning.jpg /usr/share/design/school/backgrounds/default.png
+    # cp data/wallpapers/1580.jpg /usr/share/design/school/backgrounds/default.png
+
+    # backup
+    BACKUP=/home/backup-student-from-`date +%Y_%m_%d-%H_%M_%S`
+    mv /home/student $BACKUP
+    chown root:teacher $BACKUP
+    chmod 0750 $BACKUP
+
+    # восстанавливаем студента по умолчанию
+    # rm -rf /home/student
+    tar xjvpf data/homes/home-student-empty.tbz -C /home/
 
 elif [ "`hostname | grep n1580`" ] # для ноутов
 then
