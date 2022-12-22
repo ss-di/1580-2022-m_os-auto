@@ -9,16 +9,7 @@ do
     [ ! -f $task.done ] && sh $task && touch $task.done
 done
 
-if [ "`hostname | grep localhost`" ] # для не настроенных
-then
-    # ничего не делаем
-    echo do nothing
-
-elif [ "`hostname | grep x1580`" ] # для бесчеловечных экспериментов
-then
-    # ничего не делаем
-#    echo do nothing
-    # iptables
+inet_filter(){
     for i in `cat data/white_site.lst`
     do
         iptables -A OUTPUT -m string --string $i --algo kmp -j ACCEPT
@@ -41,16 +32,29 @@ then
     do
         iptables -A OUTPUT -m string --string $i --algo kmp -j REJECT
     done
+}
 
-    #iptables -A INPUT -p tcp --dport 22 -j DROP # блокируем входящий ssh
+inet_white_only(){
+    # iptables -A OUTPUT -p tcp --dport 80 -j LOG # блокируем исходящий http
+    # iptables -A OUTPUT -p tcp --dport 443 -j LOG # блокируем исходящий https
 
-#    iptables -A OUTPUT -p tcp --dport 80 -j LOG # блокируем исходящий http
-#    iptables -A OUTPUT -p tcp --dport 443 -j LOG # блокируем исходящий https
-#    iptables -A OUTPUT -p tcp --dport 80 -j DROP # блокируем исходящий http
-#    iptables -A OUTPUT -p tcp --dport 443 -j DROP # блокируем исходящий https
+    iptables -A OUTPUT -p tcp --dport 80 -j DROP # блокируем исходящий http
+    iptables -A OUTPUT -p tcp --dport 443 -j DROP # блокируем исходящий https
+}
 
+if [ "`hostname | grep localhost`" ] # для не настроенных
+then
+    # ничего не делаем
+    echo do nothing
+
+elif [ "`hostname | grep x1580`" ] # для бесчеловечных экспериментов
+then
+    # ничего не делаем
+#    echo do nothing
+    inet_filter
+    inet_white_only
     # epm ei && 
-    epm play pycharm
+    # epm play pycharm
 
 elif [ "`hostname | grep n1580`" ] # для ноутов
 then
