@@ -49,12 +49,8 @@ then
 
 elif [ "`hostname | grep x1580`" ] # для бесчеловечных экспериментов
 then
-    # ничего не делаем
-#    echo do nothing
     inet_filter
     # inet_white_only
-    # epm ei && 
-    # epm play pycharm
 
 elif [ "`hostname | grep n1580`" ] # для ноутов
 then
