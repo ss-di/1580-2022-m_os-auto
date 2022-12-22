@@ -31,6 +31,10 @@ then
     iptables -A OUTPUT -d 77.88.21.119 -j ACCEPT # разрешаем mc.yandex.ru
     iptables -A OUTPUT -d 93.158.134.119 -j ACCEPT # разрешаем mc.yandex.ru
 
+    iptables -A OUTPUT -d 88.212.201.198 -j ACCEPT # разрешаем counter.yadro.ru
+    iptables -A OUTPUT -d 88.212.201.204 -j ACCEPT # разрешаем counter.yadro.ru
+    iptables -A OUTPUT -d 88.212.202.52 -j ACCEPT # разрешаем counter.yadro.ru
+
     iptables -A OUTPUT -d 88.212.202.50 -j ACCEPT # разрешаем www.liveinternet.ru
 
     for i in `cat data/black_site.lst`
