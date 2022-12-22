@@ -5,6 +5,23 @@ exec > /var/log/main-sh.log 2>&1 # перенаправляем весь выв�
 # планируем запуск через две минуту (когда уже будет сеть)
 at now +2 minutes -f /root/1580-2022-m_os-auto/bin/update.sh
 
+set_student-wallpapers() {
+    # ставим картинку
+    cp $1 /usr/share/design/school/backgrounds/default.png
+}
+
+clear_student_home() {
+    # backup
+    BACKUP=/home/backup-student-from-`date +%Y_%m_%d-%H_%M_%S`
+    mv /home/student $BACKUP
+    chown root:teacher $BACKUP
+    chmod 0750 $BACKUP
+
+    # восстанавливаем студента по умолчанию
+    # rm -rf /home/student
+    tar xjvpf data/homes/home-student-empty.tbz -C /home/
+}
+
 #разовые задачи
 for task in bin/main_tasks/*.sh
 do
@@ -27,21 +44,10 @@ then
 
 elif [ "`hostname | grep x1580`" ] # для бесчеловечных экспериментов
 then
-    # ничего не делаем
-    # echo do nothing
-    # ставим картинку
-    cp data/wallpapers/1580-warning.jpg /usr/share/design/school/backgrounds/default.png
-    # cp data/wallpapers/1580.jpg /usr/share/design/school/backgrounds/default.png
+    set_student-wallpapers data/wallpapers/001-warning.jpg
+#    set_student-wallpapers data/wallpapers/1580-warning.jpg
+    clear_student_home
 
-    # backup
-    BACKUP=/home/backup-student-from-`date +%Y_%m_%d-%H_%M_%S`
-    mv /home/student $BACKUP
-    chown root:teacher $BACKUP
-    chmod 0750 $BACKUP
-
-    # восстанавливаем студента по умолчанию
-    # rm -rf /home/student
-    tar xjvpf data/homes/home-student-empty.tbz -C /home/
 
 elif [ "`hostname | grep n1580`" ] # для ноутов
 then
