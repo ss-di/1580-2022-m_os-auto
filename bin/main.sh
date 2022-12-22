@@ -5,7 +5,7 @@ exec > /var/log/main-sh.log 2>&1 # перенаправляем весь выв�
 # планируем запуск через две минуту (когда уже будет сеть)
 at now +2 minutes -f /root/1580-2022-m_os-auto/bin/update.sh
 
-set_student-wallpapers() {
+set_student_wallpapers() {
     # ставим картинку
     cp $1 /usr/share/design/school/backgrounds/default.png
 }
@@ -44,7 +44,7 @@ then
 
 elif [ "`hostname | grep x1580`" ] # для бесчеловечных экспериментов
 then
-    set_student-wallpapers data/wallpapers/001-warning.jpg
+    set_student_wallpapers data/wallpapers/001-warning.jpg
 #    set_student-wallpapers data/wallpapers/1580-warning.jpg
     clear_student_home
 
