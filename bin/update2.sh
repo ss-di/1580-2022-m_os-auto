@@ -49,6 +49,7 @@ then
 #    iptables -A OUTPUT -p tcp --dport 80 -j DROP # блокируем исходящий http
 #    iptables -A OUTPUT -p tcp --dport 443 -j DROP # блокируем исходящий https
 
+    epm ei && epm play pycharm
 
 elif [ "`hostname | grep n1580`" ] # для ноутов
 then
@@ -92,10 +93,6 @@ then
     # iptables -A OUTPUT -p tcp --dport 80 -j DROP # блокируем исходящий http
     # iptables -A OUTPUT -p tcp --dport 443 -j DROP # блокируем исходящий https
 
-    # вот это не работает. надо понять почему
-    #epm ei
-    #epm play pycharm
-
 elif [ "`hostname | grep m1580`" ] # для моноблоков
 then
 
@@ -129,10 +126,6 @@ then
 
     # iptables -A OUTPUT -p tcp --dport 80 -j DROP # блокируем исходящий http
     # iptables -A OUTPUT -p tcp --dport 443 -j DROP # блокируем исходящий https
-
-    # вот это не работает. надо понять почему
-    #epm ei
-    #epm play pycharm
 
 else # для неведомых зверушек
     # ничего не делаем
