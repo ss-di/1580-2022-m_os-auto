@@ -44,10 +44,10 @@ then
 
     #iptables -A INPUT -p tcp --dport 22 -j DROP # блокируем входящий ssh
 
-    iptables -A OUTPUT -p tcp --dport 80 -j LOG # блокируем исходящий http
-    iptables -A OUTPUT -p tcp --dport 443 -j LOG # блокируем исходящий https
-    iptables -A OUTPUT -p tcp --dport 80 -j DROP # блокируем исходящий http
-    iptables -A OUTPUT -p tcp --dport 443 -j DROP # блокируем исходящий https
+#    iptables -A OUTPUT -p tcp --dport 80 -j LOG # блокируем исходящий http
+#    iptables -A OUTPUT -p tcp --dport 443 -j LOG # блокируем исходящий https
+#    iptables -A OUTPUT -p tcp --dport 80 -j DROP # блокируем исходящий http
+#    iptables -A OUTPUT -p tcp --dport 443 -j DROP # блокируем исходящий https
 
 
 elif [ "`hostname | grep n1580`" ] # для ноутов
@@ -70,7 +70,16 @@ then
     done
 
     iptables -A OUTPUT -d 81.177.135.190 -j ACCEPT # разрешаем sdo.1580.ru
+
+    iptables -A OUTPUT -d 87.250.251.119 -j ACCEPT # разрешаем mc.yandex.ru
+    iptables -A OUTPUT -d 87.250.250.119 -j ACCEPT # разрешаем mc.yandex.ru
+    iptables -A OUTPUT -d 77.88.21.119 -j ACCEPT # разрешаем mc.yandex.ru
     iptables -A OUTPUT -d 93.158.134.119 -j ACCEPT # разрешаем mc.yandex.ru
+
+    iptables -A OUTPUT -d 88.212.201.198 -j ACCEPT # разрешаем counter.yadro.ru
+    iptables -A OUTPUT -d 88.212.201.204 -j ACCEPT # разрешаем counter.yadro.ru
+    iptables -A OUTPUT -d 88.212.202.52 -j ACCEPT # разрешаем counter.yadro.ru
+
     iptables -A OUTPUT -d 88.212.202.50 -j ACCEPT # разрешаем www.liveinternet.ru
 
     for i in `cat data/black_site.lst`
@@ -99,7 +108,16 @@ then
     done
 
     iptables -A OUTPUT -d 81.177.135.190 -j ACCEPT # разрешаем sdo.1580.ru
+
+    iptables -A OUTPUT -d 87.250.251.119 -j ACCEPT # разрешаем mc.yandex.ru
+    iptables -A OUTPUT -d 87.250.250.119 -j ACCEPT # разрешаем mc.yandex.ru
+    iptables -A OUTPUT -d 77.88.21.119 -j ACCEPT # разрешаем mc.yandex.ru
     iptables -A OUTPUT -d 93.158.134.119 -j ACCEPT # разрешаем mc.yandex.ru
+
+    iptables -A OUTPUT -d 88.212.201.198 -j ACCEPT # разрешаем counter.yadro.ru
+    iptables -A OUTPUT -d 88.212.201.204 -j ACCEPT # разрешаем counter.yadro.ru
+    iptables -A OUTPUT -d 88.212.202.52 -j ACCEPT # разрешаем counter.yadro.ru
+
     iptables -A OUTPUT -d 88.212.202.50 -j ACCEPT # разрешаем www.liveinternet.ru
 
     for i in `cat data/black_site.lst`
