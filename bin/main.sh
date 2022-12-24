@@ -37,6 +37,9 @@ clear_student_home() {
 
     # ссылка на processing-4.1.1
     ln -s /opt/processing-4.1.1/processing /home/student/Рабочий\ стол/processing
+
+    # ссылка на IntelliJ IDEA
+    ln -s /opt/idea-IC-223.7571.182/bin/idea.sh /home/student/Рабочий\ стол/IntelliJ_IDEA.sh
 }
 
 if [ "`hostname | grep localhost`" ] # для не настроенных
