@@ -34,6 +34,9 @@ clear_student_home() {
     # восстанавливаем студента по умолчанию
     # rm -rf /home/student
     tar xjpf data/homes/home-student-empty.tbz -C /home/
+
+    # ссылка на processing-4.1.1
+    ln -s /opt/processing-4.1.1/processing /home/student/Рабочий\ стол/processing
 }
 
 if [ "`hostname | grep localhost`" ] # для не настроенных
