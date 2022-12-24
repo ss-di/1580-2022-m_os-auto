@@ -32,8 +32,11 @@ clear_student_home() {
     chmod 0750 $BACKUP
 
     # восстанавливаем студента по умолчанию
-    # rm -rf /home/student
+    rm -rf /home/student
     tar xjpf data/homes/home-student-empty.tbz -C /home/
+
+    # для того, чтобы учитель мог писать в папку студента
+    chmod 0770 /home/student
 
     # ссылка на processing-4.1.1
     ln -s /opt/processing-4.1.1/processing /home/student/Рабочий\ стол/processing
