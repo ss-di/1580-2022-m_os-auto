@@ -33,7 +33,7 @@ clear_student_home() {
 
     # восстанавливаем студента по умолчанию
     # rm -rf /home/student
-    tar xjvpf data/homes/home-student-empty.tbz -C /home/
+    tar xjpf data/homes/home-student-empty.tbz -C /home/
 }
 
 if [ "`hostname | grep localhost`" ] # для не настроенных
