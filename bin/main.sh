@@ -43,6 +43,11 @@ clear_student_home() {
 
     # ссылка на IntelliJ IDEA
     ln -s /opt/idea-IC-223.7571.182/bin/idea.sh /home/student/Рабочий\ стол/IntelliJ_IDEA.sh
+
+    # Компас 3D LT
+    [ -f /home/wine-kompas_3d_lt.tbz ] && \
+        cp data/KOMPASLT.sh /home/student/Рабочий\ стол/ && \
+        tar xjpf /home/wine-kompas_3d_lt.tbz -C /home/student/ &
 }
 
 if [ "`hostname | grep localhost`" ] # для не настроенных
