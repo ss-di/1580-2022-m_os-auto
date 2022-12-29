@@ -62,10 +62,10 @@ then
     # ничего не делаем
     echo do nothing
 
-elif [ "`hostname | grep m1580-3-320`" ] || [ "`hostname | grep m1580-3-418`" ] # для моноблоков 3-320 и 3-418
+elif [ "`hostname | grep m1580-2-418`" ] # для моноблоков 2-418
 then
     inet_filter
-    # inet_white_only
+    inet_white_only
 
 elif [ "`hostname | grep m1580`" ] # для моноблоков
 then
