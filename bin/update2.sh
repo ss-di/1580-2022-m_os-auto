@@ -65,7 +65,7 @@ then
 elif [ "`hostname | grep m1580-2-418`" ] # для моноблоков 2-418
 then
     inet_filter
-    inet_white_only
+#    inet_white_only
 
 elif [ "`hostname | grep m1580`" ] # для моноблоков
 then
