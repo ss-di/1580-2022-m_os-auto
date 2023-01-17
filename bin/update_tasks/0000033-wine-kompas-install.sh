@@ -11,6 +11,6 @@ apt-get -y install winetricks || exit 1
 LIST=""
 for i in glibc-nss glibc-gconv-modules sssd-client vulkan-amdgpu libvulkan1 $(epmqp --short libnss | grep "^libnss-")  $(epmqp --short xorg-dri | grep "^xorg-dri-")
 do
-    epm --quiet installed $i && LIST="$LIST i586-$i" || exit 1
+    epm --quiet install $i && LIST="$LIST i586-$i" || exit 1
 done
 epm --auto install $LIST || exit 1
