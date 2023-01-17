@@ -60,6 +60,10 @@ then
     set_default_wallpapers data/wallpapers/1580-warning.jpg
     clear_student_home
 
+elif [ "`hostname | grep n1580-2-lobachev`" ] # для мягких экспериментов
+then
+    set_default_wallpapers data/wallpapers/1580-warning.jpg
+    clear_student_home
 
 elif [ "`hostname | grep n1580`" ] # для ноутов
 then
