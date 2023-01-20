@@ -79,11 +79,6 @@ elif [ "`hostname | grep p1580`" ] # для остальных панелей
 then
     set_default_wallpapers data/wallpapers/001.jpg
 
-elif [ "`hostname | grep m1580-2-418`" ] # для моноблоков 2-* для региона !!! убрать
-then
-    set_default_wallpapers data/wallpapers/001-warning.jpg
-    clear_student_home
-
 elif [ "`hostname | grep m1580-2`" ] # для моноблоков 2-* для региона
 then
     set_default_wallpapers data/wallpapers/001.jpg
