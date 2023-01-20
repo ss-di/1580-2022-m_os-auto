@@ -41,6 +41,7 @@ inet_white_only(){
 
 if [ "`hostname | grep m1580-2`" ] # для моноблоков 2-го корпуса на регион
 then
+    [ ! -f /root/vos-reg-reboot-flg] && touch /root/vos-reg-reboot-flg && reboot && exit
     iptables -A OUTPUT -p udp --dport 53 -j ACCEPT # DNS
 
     iptables -A OUTPUT -d 194.58.88.173 -j ACCEPT # olympiads.ru - для региона
