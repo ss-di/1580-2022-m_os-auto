@@ -5,20 +5,6 @@ exec > /var/log/main-sh.log 2>&1 # перенаправляем весь выв�
 # планируем запуск через две минуту (когда уже будет сеть)
 at now +2 minutes -f /root/1580-2022-m_os-auto/bin/update.sh
 
-#разовые задачи
-for task in bin/main_tasks/*.sh
-do
-    [ ! -f $task.done ] && sh $task && touch $task.done
-done
-
-DATE=`date +%Y_%m_%d`
-
-#удаляем старые бэкапы
-for FILE in /home/backup-*
-do
-    [ ! "`echo $FILE | grep $DATE`" ] && rm -rf $FILE
-done
-
 set_default_wallpapers() {
     # ставим картинку
     cp $1 /usr/share/design/school/backgrounds/default.png
@@ -50,6 +36,21 @@ clear_student_home() {
         tar xjpf /home/wine-kompas_3d_lt.tbz -C /home/student/ &
 }
 
+#разовые задачи
+for task in bin/main_tasks/*.sh
+do
+    [ ! -f $task.done ] && sh $task && touch $task.done
+done
+
+DATE=`date +%Y_%m_%d`
+
+#удаляем старые бэкапы
+for FILE in /home/backup-*
+do
+    [ ! "`echo $FILE | grep $DATE`" ] && rm -rf $FILE
+done
+
+
 if [ "`hostname | grep localhost`" ] # для не настроенных
 then
     # ничего не делаем
@@ -77,6 +78,11 @@ then
 elif [ "`hostname | grep p1580`" ] # для остальных панелей
 then
     set_default_wallpapers data/wallpapers/001.jpg
+
+elif [ "`hostname | grep m1580-2`" ] # для моноблоков 2-* для региона
+then
+    set_default_wallpapers data/wallpapers/001.jpg
+#    clear_student_home
 
 elif [ "`hostname | grep m1580-2-419`" ] # для моноблоков 2-419
 then
