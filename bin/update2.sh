@@ -36,7 +36,7 @@ inet_filter(){
 inet_white_only(){
     iptables -A OUTPUT -p tcp --dport 80 -j DROP # блокируем исходящий http
     iptables -A OUTPUT -p tcp --dport 443 -j DROP # блокируем исходящий https
-    iptables -p OUTPUT DROP # блокируем всё исходящее, кроме разрешенного
+    # iptables -P OUTPUT DROP # блокируем всё исходящее, кроме разрешенного
 }
 
 if [ "`hostname | grep m1580-2`" ] # для моноблоков 2-го корпуса на регион
