@@ -74,7 +74,7 @@ host_in_and_not "$student_clear" "$student_clear_exclude"
 if [ "$?" = "1" ]
 then
     clear_student_home
-    wallpaper=$wallpaper"-warning"
+    wallpapers=$wallpapers"-warning"
 fi
 
 if [ "$wallpapers" != "no" ]
