@@ -43,7 +43,7 @@ if [ "`hostname | grep m1580-2`" ] # для моноблоков 2-го корп
 then
     [ ! -f /root/vos-reg-reboot-flg ] && touch /root/vos-reg-reboot-flg && reboot && exit
 
-    [ -f /root/vos-reg-sleep-flg ] && touch /root/vos-reg-sleep-flg && sleep 900
+    [ ! -f /root/vos-reg-sleep-flg ] && touch /root/vos-reg-sleep-flg && sleep 900
 
     iptables -A OUTPUT -p udp --dport 53 -j ACCEPT # DNS
 
