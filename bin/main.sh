@@ -23,11 +23,14 @@ clear_student_home() {
     rm -rf /home/student
     tar xjpf data/homes/home-student-empty.tbz -C /home/
 
+    # для того, чтобы учитель мог писать в папку студента
+    chmod 0770 /home/student
+
     # в хромиуме по умолчанию страница sdo.1580.ru
     sed '5 s/yandex.ru/sdo.1580.ru/' -i /home/student/.config/chromium/Default/Preferences
 
-    # для того, чтобы учитель мог писать в папку студента
-    chmod 0770 /home/student
+    # запуск Chromium в режиме инкогнито по умолчанию
+    echo "export CHROMIUM_USER_FLAGS=\"--incognito\"" >> /home/student/.bash_profile
 
     # автозапуск Chromium
     mkdir /home/student/.config/autostart
