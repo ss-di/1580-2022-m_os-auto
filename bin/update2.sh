@@ -1,5 +1,7 @@
 #!/bin/sh
 
+source /root/1580-2022-m_os-auto/bin/config.sh
+
 inet_filter(){
     # iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT # ответы на исходящие пакеты
 
@@ -48,37 +50,14 @@ do
     [ ! -f $task.done ] && sh $task && touch $task.done
 done
 
-if [ "`hostname | grep localhost`" ] # для не настроенных
-then
-    # ничего не делаем
-    echo do nothing
-
-elif [ "`hostname | grep x1580`" ] # для бесчеловечных экспериментов
+host_in_and_not "$inet_filter" "$inet_filter_exclude"
+if [ "$?" = "1" ]
 then
     inet_filter
-    # inet_white_only
+fi
 
-elif [ "`hostname | grep n1580`" ] # для ноутов
+host_in_and_not "$inet_white" "$inet_white_exclude"
+if [ "$?" = "1" ]
 then
-    # ничего не делаем
-    echo do nothing
-
-elif [ "`hostname | grep p1580`" ] # для панелей
-then
-    # ничего не делаем
-    echo do nothing
-
-elif [ "`hostname | grep m1580-2`" ] # для моноблоков 2-го корпуса
-then
-    inet_filter
-#    inet_white_only
-
-elif [ "`hostname | grep m1580`" ] # для моноблоков
-then
-    inet_filter
-    # inet_white_only
-
-else # для неведомых зверушек
-    # ничего не делаем
-    echo do nothing
+    inet_white_only
 fi

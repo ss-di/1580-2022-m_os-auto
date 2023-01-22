@@ -5,7 +5,7 @@ exec > /var/log/main-sh.log 2>&1 # перенаправляем весь выв�
 # планируем запуск через две минуту (когда уже будет сеть)
 at now +2 minutes -f /root/1580-2022-m_os-auto/bin/update.sh
 
-#source /root/1580-2022-m_os-auto/bin/config.sh
+source /root/1580-2022-m_os-auto/bin/config.sh
 
 set_default_wallpapers() {
     # ставим картинку
@@ -49,62 +49,34 @@ done
 
 DATE=`date +%Y_%m_%d`
 
-#удаляем старые бэкапы
+	#удаляем старые бэкапы
 for FILE in /home/backup-*
 do
     [ ! "`echo $FILE | grep $DATE`" ] && rm -rf $FILE
 done
 
-#for host in student_clear
-#do
-#  
-#done
+wallpaper="no"
 
-if [ "`hostname | grep localhost`" ] # для не настроенных
+host_in_and_not "$wallpaper_001" "$wallpaper_001_exclude"
+if [ "$?" = "1" ]
 then
-    # ничего не делаем
-    echo do nothing
+    wallpapers="001"
+fi
 
-elif [ "`hostname | grep x1580`" ] # для бесчеловечных экспериментов
+host_in_and_not "$wallpaper_1580" "$wallpaper_1580_exclude"
+if [ "$?" = "1" ]
 then
-    set_default_wallpapers data/wallpapers/1580-warning.jpg
+    wallpapers="1580"
+fi
+
+host_in_and_not "$student_clear" "$student_clear_exclude"
+if [ "$?" = "1" ]
+then
     clear_student_home
+    wallpaper=$wallpaper"-warning"
+fi
 
-elif [ "`hostname | grep n1580-2-lobachev`" ] # для мягких экспериментов
+if [ "$wallpapers" != "no" ]
 then
-    set_default_wallpapers data/wallpapers/1580-warning.jpg
-    clear_student_home
-
-elif [ "`hostname | grep n1580`" ] # для ноутов
-then
-    # ничего не делаем
-    echo do nothing
-
-elif [ "`hostname | grep p1580-2-418`" ] # для панели в 418
-then
-    set_default_wallpapers data/wallpapers/1580.jpg
-
-elif [ "`hostname | grep p1580`" ] # для остальных панелей
-then
-    set_default_wallpapers data/wallpapers/001.jpg
-
-elif [ "`hostname | grep m1580-2-419`" ] # для моноблоков 2-419
-then
-    set_default_wallpapers data/wallpapers/001-warning.jpg
-    clear_student_home
-
-elif [ "`hostname | grep m1580-3`" ] # для моноблоков 3-го корпуса
-then
-    set_default_wallpapers data/wallpapers/001-warning.jpg
-    clear_student_home
-
-elif [ "`hostname | grep m1580`" ] # для прочих моноблоков
-then
-    set_default_wallpapers data/wallpapers/1580-warning.jpg
-    clear_student_home
-
-else # для неведомых зверушек
-    # ничего не делаем
-    echo do nothing
-
+    set_default_wallpapers "data/wallpapers/""$wallpapers"".jpg"
 fi
