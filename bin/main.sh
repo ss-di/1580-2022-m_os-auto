@@ -57,16 +57,17 @@ done
 
 wallpaper="no"
 
-host_in_and_not "$wallpaper_001" "$wallpaper_001_exclude"
-if [ "$?" = "1" ]
-then
-    wallpapers="001"
-fi
-
 host_in_and_not "$wallpaper_1580" "$wallpaper_1580_exclude"
 if [ "$?" = "1" ]
 then
     wallpapers="1580"
+fi
+
+
+host_in_and_not "$wallpaper_001" "$wallpaper_001_exclude"
+if [ "$?" = "1" ]
+then
+    wallpapers="001"
 fi
 
 host_in_and_not "$student_clear" "$student_clear_exclude"
