@@ -5,6 +5,8 @@ exec > /var/log/main-sh.log 2>&1 # перенаправляем весь выв�
 # планируем запуск через две минуту (когда уже будет сеть)
 at now +2 minutes -f /root/1580-2022-m_os-auto/bin/update.sh
 
+#source /root/1580-2022-m_os-auto/bin/config.sh
+
 set_default_wallpapers() {
     # ставим картинку
     cp $1 /usr/share/design/school/backgrounds/default.png
@@ -53,6 +55,10 @@ do
     [ ! "`echo $FILE | grep $DATE`" ] && rm -rf $FILE
 done
 
+#for host in student_clear
+#do
+#  
+#done
 
 if [ "`hostname | grep localhost`" ] # для не настроенных
 then
@@ -81,11 +87,6 @@ then
 elif [ "`hostname | grep p1580`" ] # для остальных панелей
 then
     set_default_wallpapers data/wallpapers/001.jpg
-
-elif [ "`hostname | grep m1580-2`" ] # для моноблоков 2-* для региона
-then
-    set_default_wallpapers data/wallpapers/001.jpg
-#    clear_student_home
 
 elif [ "`hostname | grep m1580-2-419`" ] # для моноблоков 2-419
 then

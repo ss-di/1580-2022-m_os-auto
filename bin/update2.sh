@@ -39,23 +39,6 @@ inet_white_only(){
     # iptables -P OUTPUT DROP # блокируем всё исходящее, кроме разрешенного
 }
 
-if [ "`hostname | grep m1580-2`" ] # для моноблоков 2-го корпуса на регион
-then
-    [ ! -f /root/vos-reg-reboot-flg ] && touch /root/vos-reg-reboot-flg && reboot && exit
-
-    [ -f /root/vos-reg-sleep-flg ] && touch /root/vos-reg-sleep-flg && sleep 900
-
-    iptables -A OUTPUT -p udp --dport 53 -j ACCEPT # DNS
-
-    iptables -A OUTPUT -d 194.58.88.173 -j ACCEPT # olympiads.ru - для региона
-    iptables -A OUTPUT -d 84.201.160.168 -j ACCEPT # ejudge.msk.ru - для региона
-    iptables -A OUTPUT -p tcp --dport 80 -j DROP # блокируем исходящий http
-    iptables -A OUTPUT -p tcp --dport 443 -j DROP # блокируем исходящий https
-    iptables -p OUTPUT DROP # блокируем всё исходящее, кроме разрешенного
-    exit
-fi
-
-
 # обновление системы от разработчиков
 apt-get update && apt-get -y dist-upgrade && update-kernel -f && apt-get clean
 
