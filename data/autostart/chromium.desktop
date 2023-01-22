@@ -1,0 +1,16 @@
+[Desktop Entry]
+Categories=GTK;Network;WebBrowser;
+Comment[ru_RU]=Доступ в Интернет
+Comment=Access the Internet
+Exec=chromium %U
+GenericName[ru_RU]=Веб-браузер Chromium
+GenericName=Chromium Web Browser
+Icon=chromium
+MimeType=text/html;text/xml;application/xhtml+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
+Name[ru_RU]=Веб-браузер Chromium
+Name=Chromium Web Browser
+StartupNotify=true
+StartupWMClass=Chromium
+Terminal=false
+Type=Application
+X-MultipleArgs=false

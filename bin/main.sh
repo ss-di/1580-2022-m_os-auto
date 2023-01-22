@@ -29,6 +29,10 @@ clear_student_home() {
     # для того, чтобы учитель мог писать в папку студента
     chmod 0770 /home/student
 
+    # автозапуск Chromium
+    mkdir /home/student/.config/autostart
+    cp data/autostart/chromium.desktop /home/student/.config/autostart/
+
     # ссылка на processing-4.1.1
     ln -s /opt/processing-4.1.1/processing /home/student/Рабочий\ стол/processing
 
