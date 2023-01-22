@@ -30,7 +30,7 @@ clear_student_home() {
     sed '5 s/yandex.ru/sdo.1580.ru/' -i /home/student/.config/chromium/Default/Preferences
 
     # запуск Chromium в режиме инкогнито по умолчанию
-    echo "export CHROMIUM_USER_FLAGS=\"--incognito\"" >> /home/student/.bash_profile
+    #echo "export CHROMIUM_USER_FLAGS=\"--incognito\"" >> /home/student/.bash_profile
 
     # автозапуск Chromium
     mkdir /home/student/.config/autostart
