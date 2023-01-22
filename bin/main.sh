@@ -62,14 +62,11 @@ do
     [ ! "`echo $FILE | grep $DATE`" ] && rm -rf $FILE
 done
 
-wallpaper="no"
-
 host_in_and_not "$wallpaper_1580" "$wallpaper_1580_exclude"
 if [ "$?" = "1" ]
 then
     wallpapers="1580"
 fi
-
 
 host_in_and_not "$wallpaper_001" "$wallpaper_001_exclude"
 if [ "$?" = "1" ]
@@ -84,7 +81,7 @@ then
     wallpapers=$wallpapers"-warning"
 fi
 
-if [ "$wallpapers" != "no" ]
+if [ "$wallpapers" ] && [ "$wallpapers" != "-warning" ]
 then
     set_default_wallpapers "data/wallpapers/""$wallpapers"".jpg"
 fi
