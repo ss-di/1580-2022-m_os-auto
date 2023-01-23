@@ -36,6 +36,9 @@ clear_student_home() {
     mkdir /home/student/.config/autostart
     cp data/autostart/chromium.desktop /home/student/.config/autostart/
 
+    # настройки кнопок и автовыключения
+    cp data/config/powermanagementprofilesrc /home/student/.config/
+
     # ссылка на processing-4.1.1
     ln -s /opt/processing-4.1.1/processing /home/student/Рабочий\ стол/processing
 
