@@ -45,10 +45,11 @@ clear_student_home() {
     # ссылка на IntelliJ IDEA
     ln -s /opt/idea-IC-223.7571.182/bin/idea.sh /home/student/Рабочий\ стол/IntelliJ_IDEA.sh
 
-    # Компас 3D LT
-    [ -f /home/wine-kompas_3d_lt.tbz ] && \
+    # Компас 3D LT + PascalABC
+    [ -f /home/student-wine-v2.tbz ] && \
+        ( tar xjpf /home/student-wine-v2.tbz -C /home/student/ && \
         cp data/KOMPASLT.sh /home/student/Рабочий\ стол/ && \
-        tar xjpf /home/wine-kompas_3d_lt.tbz -C /home/student/ &
+        cp data/PascalABC.sh /home/student/Рабочий\ стол/ ) &
 }
 
 #разовые задачи
