@@ -1,6 +1,6 @@
 #!/bin/sh
 
-[ ! "`hostname | grep m1580-1-209`" ] && exit
+[ ! "`hostname | grep m1580-1`" ] && exit
 
 cd /home/ && wget -nc https://sdo.1580.ru/some-files/Windows_10.ova && \
              wget -nc https://sdo.1580.ru/some-files/Windows_10.ova.md5 && \
