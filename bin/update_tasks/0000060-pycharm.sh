@@ -6,4 +6,4 @@
 
 #echo $path
 
-epm ei && epm play pycharm || exit 1
+epm --auto ei && epm --auto play pycharm || exit 1
