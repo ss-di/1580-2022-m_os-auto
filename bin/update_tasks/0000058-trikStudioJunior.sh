@@ -1,3 +1,3 @@
 #!/bin/sh
 
-apt-get install trikStudioJunior || exit 1
+apt-get -y install trikStudioJunior || exit 1
