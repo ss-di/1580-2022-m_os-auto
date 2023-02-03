@@ -19,7 +19,7 @@ inet_white="x1580"
 inet_white_exclude=""
 
 # Выключить интернет:
-inet_off=""
+inet_off="m1580-2-418-3"
 # Выключить интернет кроме:
 inet_off_exclude=""
 
