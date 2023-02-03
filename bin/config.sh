@@ -6,7 +6,7 @@
 # Очищать папку студента для:
 student_clear="m1580 n1580-2-free n1580-2-lobachev"
 # Очищать папку студента кроме:
-student_clear_exclude="m1580-2-418-3"
+student_clear_exclude="m1580-2-418"
 
 # Включать черный список для:
 inet_filter="m1580 n1580-2-free n1580-2-lobachev x1580"
