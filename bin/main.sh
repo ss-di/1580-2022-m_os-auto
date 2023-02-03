@@ -46,7 +46,8 @@ clear_student_home() {
     ln -s /opt/idea-IC-223.7571.182/bin/idea.sh /home/student/Рабочий\ стол/IntelliJ_IDEA.sh
 
     # Компас 3D LT + PascalABC
-    [ -f /home/student-wine-v2.tbz ] && \
+    [ ! "`hostname | grep n1580-2-free`" ] && \
+        [ -f /home/student-wine-v2.tbz ] && \
         ( tar xjpf /home/student-wine-v2.tbz -C /home/student/ && \
         cp data/KOMPASLT.sh /home/student/Рабочий\ стол/ && \
         cp data/PascalABC.sh /home/student/Рабочий\ стол/ ) &
