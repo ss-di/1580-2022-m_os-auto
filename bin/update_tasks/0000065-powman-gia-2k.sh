@@ -1,6 +1,6 @@
 #!/bin/sh
 
-[ ! "`hostname | grep m1580-2`" ] && exit # если не 2-й корпус
+[ ! "`hostname | grep m1580-2`" ] && exit
 
-    # настройки кнопок и автовыключения для ЕГЭ/ОГЭ
-    cp data/config/powermanagementprofilesrc-teacher-gia /home/teacher/.config/powermanagementprofilesrc || exit 1
+
+cp data/config/powermanagementprofilesrc-teacher-gia /home/teacher/.config/powermanagementprofilesrc || exit 1
