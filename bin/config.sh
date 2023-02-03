@@ -6,10 +6,10 @@
 # Очищать папку студента для:
 student_clear="m1580 n1580-2-free n1580-2-lobachev"
 # Очищать папку студента кроме:
-student_clear_exclude=""
+student_clear_exclude="m1580-2-418-3"
 
 # Включать черный список для:
-inet_filter="m1580 n1580-2-lobachev x1580"
+inet_filter="m1580 n1580-2-free n1580-2-lobachev x1580"
 # Включать черный список кроме:
 inet_filter_exclude=""
 
@@ -24,7 +24,7 @@ inet_off="m1580-2-418-3"
 inet_off_exclude=""
 
 # Установить правильные обои для:
-wallpaper_1580="m1580 n1580-2-lobachev"
+wallpaper_1580="m1580 n1580-2-free n1580-2-lobachev"
 # Установить правильные обои кроме:
 wallpaper_1580_exclude=""
 
