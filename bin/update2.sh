@@ -36,9 +36,13 @@ inet_filter(){
 }
 
 inet_white_only(){
-    iptables -A OUTPUT -p tcp --dport 80 -j DROP # блокируем исходящий http
-    iptables -A OUTPUT -p tcp --dport 443 -j DROP # блокируем исходящий https
-    # iptables -P OUTPUT DROP # блокируем всё исходящее, кроме разрешенного
+    # iptables -A OUTPUT -p tcp --dport 80 -j DROP # блокируем исходящий http
+    # iptables -A OUTPUT -p tcp --dport 443 -j DROP # блокируем исходящий https
+    iptables -P OUTPUT DROP # блокируем всё исходящее, кроме разрешенного
+}
+
+inet_off(){
+    iptables -I OUTPUT 1 -j DROP # блокируем исходящий трафик
 }
 
 # обновление системы от разработчиков
@@ -60,4 +64,10 @@ host_in_and_not "$inet_white" "$inet_white_exclude"
 if [ "$?" = "1" ]
 then
     inet_white_only
+fi
+
+host_in_and_not "$inet_off" "$inet_off_exclude"
+if [ "$?" = "1" ]
+then
+    inet_off
 fi
