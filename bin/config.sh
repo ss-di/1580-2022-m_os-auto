@@ -6,7 +6,7 @@
 # Очищать папку студента для:
 student_clear="m1580 n1580-2-free n1580-2-lobachev"
 # Очищать папку студента кроме:
-student_clear_exclude="m1580-2-418"
+student_clear_exclude=""
 
 # Включать черный список для:
 inet_filter="m1580 n1580-2-free n1580-2-lobachev x1580"
@@ -19,7 +19,7 @@ inet_white="x1580"
 inet_white_exclude=""
 
 # Выключить интернет:
-inet_off="m1580-2-418-3"
+inet_off=""
 # Выключить интернет кроме:
 inet_off_exclude=""
 
