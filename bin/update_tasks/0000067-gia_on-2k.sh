@@ -1,5 +1,7 @@
 #!/bin/sh
 
+exit
+
 [ ! "`hostname | grep m1580-2`" ] && exit
 
 [ "`cat /etc/X11/sddm/sddm.conf | grep teacher`" ] && exit
