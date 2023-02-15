@@ -1,3 +1,3 @@
 #!/bin/sh
 
-epm --auto ei && epm --auto play vscode || exit 1
+epm --auto ei && epm --auto play code || exit 1
