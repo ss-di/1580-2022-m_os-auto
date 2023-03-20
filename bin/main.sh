@@ -53,6 +53,11 @@ clear_student_home() {
         cp data/PascalABC.sh /home/student/Рабочий\ стол/ ) &
 }
 
+    # PascalABC
+    [ -f /home/student-wine-PABC.tbz ] && cp data/PascalABC.sh /home/student/Рабочий\ стол/
+}
+
+
 #разовые задачи
 for task in bin/main_tasks/*.sh
 do
