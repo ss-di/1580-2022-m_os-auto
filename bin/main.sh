@@ -46,7 +46,7 @@ clear_student_home() {
     ln -s /opt/idea-IC-223.7571.182/bin/idea.sh /home/student/Рабочий\ стол/IntelliJ_IDEA.sh
 
     # PascalABC
-    [ -f /home/student-wine-PABC.tbz ] && cp data/PascalABC.sh /home/student/Рабочий\ стол/
+    [ -f /home/student-wine-pabc.tbz ] && cp data/PascalABC.sh /home/student/Рабочий\ стол/
 
     # Компас 3D LT
     [ -f /home/student-wine-kompas_3d_lt.tbz ] && cp cp data/KOMPASLT.sh /home/student/Рабочий\ стол/
