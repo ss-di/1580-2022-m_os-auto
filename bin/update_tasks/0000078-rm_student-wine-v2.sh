@@ -1,3 +1,3 @@
 #!/bin/sh
 
-rm -f student-wine-v2.tbz*
+rm -f /home/student-wine-v2.tbz*
