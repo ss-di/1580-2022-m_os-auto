@@ -14,7 +14,7 @@ inet_filter="m1580 custom-2-it n1580-2-free n1580-2-lobachev x1580"
 inet_filter_exclude=""
 
 # Включать белый список для:
-inet_white="x1580 m1580-1"
+inet_white="x1580"
 # Включать белый список кроме:
 inet_white_exclude=""
 
