@@ -45,9 +45,6 @@ inet_off(){
     iptables -I OUTPUT 1 -j DROP # блокируем исходящий трафик
 }
 
-# обновление системы от разработчиков
-apt-get update && apt-get -y dist-upgrade && update-kernel -f && apt-get clean
-
 #разовые задачи
 for task in bin/update_tasks/*.sh
 do
