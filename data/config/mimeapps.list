@@ -1,0 +1,23 @@
+[Added Associations]
+application/msword=LibreOffice-writer.desktop;r7-office-desktopeditors.desktop;
+application/vnd.ms-excel=LibreOffice-calc.desktop;r7-office-desktopeditors.desktop;
+application/vnd.ms-powerpoint=LibreOffice-impress.desktop;r7-office-desktopeditors.desktop;
+application/vnd.openxmlformats-officedocument.presentationml.presentation=LibreOffice-impress.desktop;r7-office-desktopeditors.desktop;kf5-org.kde.ark.desktop;
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=LibreOffice-calc.desktop;calc.desktop;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=LibreOffice-writer.desktop;writer.desktop;
+text/csv=LibreOffice-calc.desktop;r7-office-desktopeditors.desktop;kf5-org.kde.kwrite.desktop;kf5-org.kde.kate.desktop;kf5-krita_csv.desktop;geany.desktop;kf5-okularApplication_txt.desktop;LibreOffice-writer.desktop;code.desktop;
+text/x-c++src=geany.desktop;
+text/x-pascal=geany.desktop;
+text/x-python=geany.desktop;
+
+[Default Applications]
+application/msword=LibreOffice-writer.desktop;
+application/vnd.ms-excel=LibreOffice-calc.desktop;
+application/vnd.ms-powerpoint=LibreOffice-impress.desktop;
+application/vnd.openxmlformats-officedocument.presentationml.presentation=LibreOffice-impress.desktop;
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=LibreOffice-calc.desktop;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=LibreOffice-writer.desktop;
+text/csv=LibreOffice-calc.desktop;
+text/x-c++src=geany.desktop;
+text/x-pascal=geany.desktop;
+text/x-python=geany.desktop;

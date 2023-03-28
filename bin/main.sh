@@ -39,6 +39,9 @@ clear_student_home() {
     # настройки кнопок и автовыключения
     cp data/config/powermanagementprofilesrc /home/student/.config/
 
+    # настройки приложений по умолчанию
+    cp data/config/mimeapps.list /home/student/.config/
+
     # ссылка на processing-4.1.1
     ln -s /opt/processing-4.1.1/processing /home/student/Рабочий\ стол/processing
 
