@@ -54,6 +54,9 @@ clear_student_home() {
     # Компас 3D LT
     [ -f /home/student-wine-kompas_3d_lt.tbz ] && cp cp data/KOMPASLT.sh /home/student/Рабочий\ стол/
 
+    # Windows 10 VM
+    [ -f /home/Windows_10.ova ] && cp data/Windows10vm.sh /home/student/Рабочий\ стол/
+
 }
 
 

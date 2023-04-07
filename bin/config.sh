@@ -19,12 +19,12 @@ inet_white="x1580"
 inet_white_exclude=""
 
 # Выключить интернет:
-inet_off=""
+inet_off="m1580-2"
 # Выключить интернет кроме:
 inet_off_exclude=""
 
 # Установить правильные обои для:
-wallpaper_1580="m1580 custom-2-it n1580-2-free n1580-2-lobachev"
+wallpaper_1580="m1580 n1580-2-it n1580-2-free n1580-2-lobachev"
 # Установить правильные обои кроме:
 wallpaper_1580_exclude=""
 
