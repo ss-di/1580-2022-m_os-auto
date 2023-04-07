@@ -1,6 +1,6 @@
 #!/bin/sh
 
-exit
+# exit
 
 [ ! "`hostname | grep m1580-2`" ] && exit
 
