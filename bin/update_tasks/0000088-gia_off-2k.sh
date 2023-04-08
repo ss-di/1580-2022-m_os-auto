@@ -10,4 +10,4 @@ sed -i'.bak' -E -e 's,^Session.+,Session=plasma,' -e 's,^User.+,User=student,' /
 rm -f /home/teacher/.config/autostart/W10.desktop
 rm -f /home/teacher/.config/powermanagementprofilesrc
 
-reboot
+shutdown -h now
