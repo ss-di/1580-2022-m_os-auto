@@ -30,12 +30,12 @@ value=100
 idleTime=900
 
 [Battery][DimDisplay]
-idleTime=1320000
+idleTime=600000
 
 [Battery][HandleButtonEvents]
-lidAction=2
+lidAction=8
 powerButtonAction=8
-triggerLidActionWhenExternalMonitorPresent=false
+triggerLidActionWhenExternalMonitorPresent=true
 
 [Battery][SuspendSession]
 idleTime=1800000
