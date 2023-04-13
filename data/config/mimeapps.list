@@ -1,23 +1,40 @@
-[Added Associations]
-application/msword=LibreOffice-writer.desktop;r7-office-desktopeditors.desktop;
-application/vnd.ms-excel=LibreOffice-calc.desktop;r7-office-desktopeditors.desktop;
-application/vnd.ms-powerpoint=LibreOffice-impress.desktop;r7-office-desktopeditors.desktop;
-application/vnd.openxmlformats-officedocument.presentationml.presentation=LibreOffice-impress.desktop;r7-office-desktopeditors.desktop;kf5-org.kde.ark.desktop;
-application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=LibreOffice-calc.desktop;calc.desktop;
-application/vnd.openxmlformats-officedocument.wordprocessingml.document=LibreOffice-writer.desktop;writer.desktop;
-text/csv=LibreOffice-calc.desktop;r7-office-desktopeditors.desktop;kf5-org.kde.kwrite.desktop;kf5-org.kde.kate.desktop;kf5-krita_csv.desktop;geany.desktop;kf5-okularApplication_txt.desktop;LibreOffice-writer.desktop;code.desktop;
-text/x-c++src=geany.desktop;
-text/x-pascal=geany.desktop;
-text/x-python=geany.desktop;
-
 [Default Applications]
-application/msword=LibreOffice-writer.desktop;
-application/vnd.ms-excel=LibreOffice-calc.desktop;
-application/vnd.ms-powerpoint=LibreOffice-impress.desktop;
-application/vnd.openxmlformats-officedocument.presentationml.presentation=LibreOffice-impress.desktop;
-application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=LibreOffice-calc.desktop;
-application/vnd.openxmlformats-officedocument.wordprocessingml.document=LibreOffice-writer.desktop;
-text/csv=LibreOffice-calc.desktop;
+# grep ^MimeType /usr/share/applications/chromium.desktop | sed 's/MimeType=//g' | tr ';' '\n' | sort -u | while read -r line; do echo $line=chromium.desktop; done
+application/xhtml+xml=chromium.desktop
+text/html=chromium.desktop
+text/mml=chromium.desktop
+text/xml=chromium.desktop
 text/x-c++src=geany.desktop;
 text/x-pascal=geany.desktop;
 text/x-python=geany.desktop;
+x-scheme-handler/http=chromium.desktop
+x-scheme-handler/https=chromium.desktop
+x-scheme-handler/http=chromium.desktop;
+x-scheme-handler/https=chromium.desktop;
+x-scheme-handler/mailto=thunderbird.desktop;
+# Prefer R7 or OnlyOffice and fallback to LibreOffice
+# Different versions of LibreOffice may have either LibreOffice-xxx.desktop or libreoffice-xxx.desktop or xxx.desktop
+# *.csv
+text/csv=libreoffice-calc.desktop;LibreOffice-calc.desktop;calc.desktop;r7-office-desktopeditors.desktop;onlyoffice-desktopeditors.desktop;
+# *.doc
+application/msword=libreoffice-writer.desktop;LibreOffice-writer.desktop;writer.desktop;r7-office-desktopeditors.desktop;onlyoffice-desktopeditors.desktop;
+# *.rtf
+application/rtf=libreoffice-writer.desktop;LibreOffice-writer.desktop;writer.desktop;r7-office-desktopeditors.desktop;onlyoffice-desktopeditors.desktop;
+# *.xls
+application/vnd.ms-excel=libreoffice-calc.desktop;LibreOffice-calc.desktop;calc.desktop;r7-office-desktopeditors.desktop;onlyoffice-desktopeditors.desktop;
+# *.xlsx
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=calc.desktop;r7-office-desktopeditors.desktop;onlyoffice-desktopeditors.desktop;
+# *.xltx
+application/vnd.openxmlformats-officedocument.spreadsheetml.template=libreoffice-calc.desktop;LibreOffice-calc.desktop;calc.desktop;r7-office-desktopeditors.desktop;onlyoffice-desktopeditors.desktop;
+# *.docx
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop;LibreOffice-writer.desktop;writer.desktop;r7-office-desktopeditors.desktop;onlyoffice-desktopeditors.desktop;
+# *.dotx
+application/vnd.openxmlformats-officedocument.wordprocessingml.template=libreoffice-writer.desktop;LibreOffice-writer.desktop;writer.desktop;r7-office-desktopeditors.desktop;onlyoffice-desktopeditors.desktop;
+# *.ppt
+application/vnd.ms-powerpoint=libreoffice-impress.desktop;LibreOffice-impress.desktop;impress.desktop;r7-office-desktopeditors.desktop;onlyoffice-desktopeditors.desktop;
+# *.pptx
+application/vnd.openxmlformats-officedocument.presentationml.presentation=libreoffice-impress.desktop;LibreOffice-impress.desktop;impress.desktop;r7-office-desktopeditors.desktop;onlyoffice-desktopeditors.desktop;
+# *.ppsx
+application/vnd.openxmlformats-officedocument.presentationml.slideshow=libreoffice-impress.desktop;LibreOffice-impress.desktop;impress.desktop;r7-office-desktopeditors.desktop;onlyoffice-desktopeditors.desktop;
+# *.potx
+application/vnd.openxmlformats-officedocument.presentationml.template=libreoffice-impress.desktop;LibreOffice-impress.desktop;impress.desktop;r7-office-desktopeditors.desktop;onlyoffice-desktopeditors.desktop;
