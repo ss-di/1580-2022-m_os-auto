@@ -35,6 +35,9 @@ clear_student_home() {
     # автозапуск Chromium
     mkdir /home/student/.config/autostart
     cp data/autostart/chromium.desktop /home/student/.config/autostart/ || echo error chromium.desktop
+    # другая ссылка для 1-2 корпусов
+    [ "`hostname | grep m1580-1`" ] && cp data/autostart/alt-chromium.desktop /home/student/.config/autostart/chromium.desktop
+    [ "`hostname | grep m1580-2`" ] && cp data/autostart/alt-chromium.desktop /home/student/.config/autostart/chromium.desktop
 
     # настройки кнопок и автовыключения
     cp data/config/powermanagementprofilesrc /home/student/.config/  || echo error powermanagementprofilesrc
