@@ -8,6 +8,8 @@ at now +2 minutes -f /root/1580-2022-m_os-auto/bin/update.sh
 source /root/1580-2022-m_os-auto/bin/config.sh
 
 set_default_wallpapers() {
+    echo 55
+
     # ставим картинку
     cp $1 /usr/share/design/school/backgrounds/default.png
 }
@@ -31,20 +33,22 @@ clear_student_home() {
 
     # запуск Chromium в режиме инкогнито по умолчанию
     #echo "export CHROMIUM_USER_FLAGS=\"--incognito\"" >> /home/student/.bash_profile
-
+    echo 1
     # автозапуск Chromium
     mkdir /home/student/.config/autostart
-    cp data/autostart/chromium.desktop /home/student/.config/autostart/ || echo error chromium.desktop
+    cp data/autostart/chromium.desktop /home/student/.config/autostart/
     # другая ссылка для 1-2 корпусов
     [ "`hostname | grep m1580-1`" ] && cp data/autostart/alt-chromium.desktop /home/student/.config/autostart/chromium.desktop
     [ "`hostname | grep m1580-1`" ] && cp data/autostart/alt-chromium.desktop /home/student/.config/autostart/chromium.desktop
     [ "`hostname | grep m1580-0`" ] && cp data/autostart/alt-chromium.desktop /home/student/.config/autostart/chromium.desktop
 
+    echo 2
     # настройки кнопок и автовыключения
-    cp data/config/powermanagementprofilesrc /home/student/.config/  || echo error powermanagementprofilesrc
+    cp data/config/powermanagementprofilesrc /home/student/.config/
 
+    echo 3
     # настройки приложений по умолчанию
-    cp data/config/mimeapps.list /home/student/.config/ || echo error mimeapps.list
+    cp data/config/mimeapps.list /home/student/.config/
 
     # ссылка на processing-4.1.1
     ln -s /opt/processing-4.1.1/processing /home/student/Рабочий\ стол/processing
