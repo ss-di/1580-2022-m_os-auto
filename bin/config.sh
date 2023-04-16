@@ -9,12 +9,12 @@ student_clear="m1580 n1580-2-it n1580-2-free n1580-2-lobachev"
 student_clear_exclude=""
 
 # Включать черный список для:
-inet_filter="m1580 n1580-2-it n1580-2-free n1580-2-lobachev x1580"
+inet_filter="m1580 n1580-2-it n1580-2-lobachev"
 # Включать черный список кроме:
 inet_filter_exclude=""
 
 # Включать белый список для:
-inet_white="x1580"
+inet_white="m1580-1 m1580-2 m1580-0" # на семестровую в 1-2 корпусах
 # Включать белый список кроме:
 inet_white_exclude=""
 
