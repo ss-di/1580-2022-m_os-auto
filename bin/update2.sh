@@ -12,6 +12,12 @@ inet_filter(){
 
     iptables -A OUTPUT -d 81.177.135.190 -j ACCEPT # разрешаем sdo.1580.ru
 
+    # разрешаем cloudflare
+    for i in `curl https://www.cloudflare.com/ips-v4`
+    do
+        iptables -A OUTPUT -d $i -j ACCEPT
+    done
+
     iptables -A OUTPUT -d 87.250.251.119 -j ACCEPT # разрешаем mc.yandex.ru
     iptables -A OUTPUT -d 87.250.250.119 -j ACCEPT # разрешаем mc.yandex.ru
     iptables -A OUTPUT -d 77.88.21.119 -j ACCEPT # разрешаем mc.yandex.ru
