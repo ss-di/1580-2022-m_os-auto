@@ -38,9 +38,9 @@ clear_student_home() {
     mkdir /home/student/.config/autostart
     cp data/autostart/chromium.desktop /home/student/.config/autostart/
     # другая ссылка для 1-2 корпусов
-    [ "`hostname | grep m1580-1`" ] && [ "`date +%d%m | grep 1704`" ] && cp data/autostart/alt-chromium.desktop /home/student/.config/autostart/chromium.desktop
-    [ "`hostname | grep m1580-2`" ] && [ "`date +%d%m | grep 1704`" ] && cp data/autostart/alt-chromium.desktop /home/student/.config/autostart/chromium.desktop
-    [ "`hostname | grep m1580-0`" ] && [ "`date +%d%m | grep 1704`" ] && cp data/autostart/alt-chromium.desktop /home/student/.config/autostart/chromium.desktop
+    [ "`hostname | grep m1580-1`" ] && [ "`date +%d%m | grep 2004`" ] && cp data/autostart/alt-chromium.desktop /home/student/.config/autostart/chromium.desktop
+    [ "`hostname | grep m1580-2`" ] && [ "`date +%d%m | grep 2004`" ] && cp data/autostart/alt-chromium.desktop /home/student/.config/autostart/chromium.desktop
+    [ "`hostname | grep m1580-0`" ] && [ "`date +%d%m | grep 2004`" ] && cp data/autostart/alt-chromium.desktop /home/student/.config/autostart/chromium.desktop
 
     echo 2
     # настройки кнопок и автовыключения
