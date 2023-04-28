@@ -1,5 +1,7 @@
 #!/bin/sh
 
+exit # отключим
+
 [ ! "`hostname | grep m1580-2`" ] && exit
 
 [ "`hostname | grep m1580-2-427`" ] && exit # не надо винду в 427
