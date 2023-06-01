@@ -56,10 +56,10 @@ inet_off(){
 }
 
 #разовые задачи
-for task in bin/update_tasks/*.sh
-do
-    [ ! -f $task.done ] && sh $task && touch $task.done
-done
+#for task in bin/update_tasks/*.sh
+#do
+#    [ ! -f $task.done ] && sh $task && touch $task.done
+#done
 
 host_in_and_not "$inet_filter" "$inet_filter_exclude"
 if [ "$?" = "1" ]
