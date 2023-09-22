@@ -2,7 +2,7 @@
 
 FILE=student-wine-pabc.tbz
 
-cd /home/ && wget -nc https://sdo.1580.ru/some-files/$FILE && \
-             wget -nc https://sdo.1580.ru/some-files/$FILE.md5 && \
+cd /home/ && wget -nc https://bf726e13342a.hosting.myjino.ru/some-files/$FILE && \
+             wget -nc https://bf726e13342a.hosting.myjino.ru/some-files/$FILE.md5 && \
              md5sum -c $FILE.md5 || (rm -f $FILE*; exit 1)
 
