@@ -5,6 +5,8 @@ source /root/1580-2022-m_os-auto/bin/config.sh
 inet_filter(){
     # iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT # ответы на исходящие пакеты
 
+    iptables -A OUTPUT -i lo -j ACCEPT # loopback
+
     iptables -A OUTPUT -p udp --dport 53 -j ACCEPT # DNS
 
     #iptables -A OUTPUT -d 194.58.88.173 -j ACCEPT # olympiads.ru - для региона
