@@ -64,7 +64,8 @@ inet_off(){
 #разовые задачи
 for task in bin/update_tasks/*.sh
 do
-    [ ! -f $task.done ] && sh $task && touch $task.done
+# reg    [ ! -f $task.done ] && sh $task && touch $task.done
+    echo 123
 done
 
 host_in_and_not "$inet_filter" "$inet_filter_exclude"
