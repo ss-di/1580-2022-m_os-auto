@@ -17,14 +17,15 @@ inet_filter(){
     # разрешаем cloudflare
     for i in `curl https://www.cloudflare.com/ips-v4`
     do
-#reg        iptables -A OUTPUT -d $i -j ACCEPT
+# reg        iptables -A OUTPUT -d $i -j ACCEPT
+            echo 132
     done
 
 # не робит...
 #    iptables -A OUTPUT -d 188.114.98.224 -j ACCEPT # разрешаем codeforces.com
 #    iptables -A OUTPUT -d 188.114.99.224 -j ACCEPT # разрешаем codeforces.com
 
-##reg
+## reg
 ##    iptables -A OUTPUT -d 87.250.251.119 -j ACCEPT # разрешаем mc.yandex.ru
 ##    iptables -A OUTPUT -d 87.250.250.119 -j ACCEPT # разрешаем mc.yandex.ru
 ##    iptables -A OUTPUT -d 77.88.21.119 -j ACCEPT # разрешаем mc.yandex.ru
@@ -39,12 +40,14 @@ inet_filter(){
 
     for i in `cat data/white_site.lst`
     do
-#reg        iptables -A OUTPUT -m string --string $i --algo kmp -j ACCEPT
+# reg        iptables -A OUTPUT -m string --string $i --algo kmp -j ACCEPT
+            echo 132
     done
 
     for i in `cat data/black_site.lst`
     do
-#reg        iptables -A OUTPUT -m string --string $i --algo kmp -j REJECT
+# reg        iptables -A OUTPUT -m string --string $i --algo kmp -j REJECT
+            echo 132
     done
 }
 
