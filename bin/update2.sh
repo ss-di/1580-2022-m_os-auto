@@ -17,8 +17,7 @@ inet_filter(){
     # разрешаем cloudflare
     for i in `curl https://www.cloudflare.com/ips-v4`
     do
-# reg        iptables -A OUTPUT -d $i -j ACCEPT
-            echo 132
+        iptables -A OUTPUT -d $i -j ACCEPT
     done
 
 # не робит...
@@ -40,13 +39,13 @@ inet_filter(){
 
     for i in `cat data/white_site.lst`
     do
-# reg        iptables -A OUTPUT -m string --string $i --algo kmp -j ACCEPT
+        iptables -A OUTPUT -m string --string $i --algo kmp -j ACCEPT
             echo 132
     done
 
     for i in `cat data/black_site.lst`
     do
-# reg        iptables -A OUTPUT -m string --string $i --algo kmp -j REJECT
+        iptables -A OUTPUT -m string --string $i --algo kmp -j REJECT
             echo 132
     done
 }
@@ -64,8 +63,7 @@ inet_off(){
 #разовые задачи
 for task in bin/update_tasks/*.sh
 do
-# reg    [ ! -f $task.done ] && sh $task && touch $task.done
-    echo 123
+    [ ! -f $task.done ] && sh $task && touch $task.done
 done
 
 host_in_and_not "$inet_filter" "$inet_filter_exclude"
