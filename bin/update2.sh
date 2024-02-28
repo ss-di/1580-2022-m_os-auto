@@ -9,8 +9,8 @@ inet_filter(){
 
     iptables -A OUTPUT -p udp --dport 53 -j ACCEPT # DNS
 
-    iptables -A OUTPUT -d 194.58.88.173 -j ACCEPT # olympiads.ru - для региона
-    iptables -A OUTPUT -d 158.160.74.243 -j ACCEPT # ejudge.msk.ru - для региона
+#    iptables -A OUTPUT -d 194.58.88.173 -j ACCEPT # olympiads.ru - для региона
+#    iptables -A OUTPUT -d 158.160.74.243 -j ACCEPT # ejudge.msk.ru - для региона
 
     iptables -A OUTPUT -d 81.177.135.190 -j ACCEPT # разрешаем sdo.1580.ru
 
