@@ -14,7 +14,7 @@ inet_filter="m1580 n1580-2-it n1580-2-lobachev"
 inet_filter_exclude=""
 
 # Включать белый список для:
-inet_white=""
+inet_white="1580-2"
 # [ "`date +%d%m | grep 0405`" ] && inet_white="m1580-1-205 m1580-1-206"
 # Включать белый список кроме:
 inet_white_exclude=""
