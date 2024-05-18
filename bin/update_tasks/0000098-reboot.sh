@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# exit
+exit
 
 [ -f "/home/rebooted.flg" ] && exit
 
